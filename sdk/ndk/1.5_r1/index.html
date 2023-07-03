@@ -1,0 +1,645 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>Android 1.5 NDK, Release 1 | Android Developers</title>
+<link href="../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+
+<body class="gc-documentation">
+<a name="top"></a>
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="sdk">
+         
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span class="de">Startseite</span>
+		<span class="es"></span>
+		<span class="fr"></span>
+		<span class="it"></span>
+                <span class="ja">ホーム</span>
+		<span class="zh-CN">主页</span>
+		<span class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/1.6_r1/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span class="de">Handbuch</span>
+		<span class="es">Guía</span>
+		<span class="fr">Guide</span>
+		<span class="it">Guida</span>
+                <span class="ja">開発ガイド</span>
+		<span class="zh-CN">开发人员指南</span>
+		<span class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span class="de">Referenz</span>
+		<span class="es">Referencia</span>
+		<span class="fr">Référence</span>
+		<span class="it">Riferimento</span>
+                <span class="ja">リファレンス</span>
+		<span class="zh-CN">参考</span>
+		<span class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span class="de"></span>
+		<span class="es"></span>
+		<span class="fr"></span>
+		<span class="it"></span>
+                <span class="ja">ブログ</span>
+		<span class="zh-CN">博客</span>
+		<span class="zh-TW">網誌</span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span class="de"></span>
+		<span class="es"></span>
+		<span class="fr"></span>
+		<span class="it"></span>
+                <span class="ja">ビデオ</span>
+		<span class="zh-CN"></span>
+		<span class="zh-TW"></span>
+	
+	</a></li>
+	<li id="community-link"><a href="../../../community/index.html">
+	
+		<span class="en">Community</span>
+		<span class="de"></span>
+		<span class="es">Comunidad</span>
+		<span class="fr">Communauté</span>
+		<span class="it"></span>
+                <span class="ja">コミュニティ</span>
+		<span class="zh-CN">社区</span>
+		<span class="zh-TW">社群</span>
+	
+	</a></li>
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first not-resizable" id="side-nav">
+      <div id="devdoc-nav">
+<ul>
+  <li>
+    <h2>Android 1.6 SDK, r1</h2>
+    <ul>
+      <li><a href="../../../sdk/1.6_r1/installing.html">
+          <span class="en">Installing</span>
+          <span class="de">Installieren</span>
+          <span class="es">Instalación</span>
+          <span class="fr">Installation</span>
+          <span class="it">Installazione</span>
+          <span class="ja">インストール</span>
+          <span class="zh-CN">安装</span>
+          <span class="zh-TW">安裝</span>
+      </a></li>
+      <li><a href="../../../sdk/1.6_r1/upgrading.html">Upgrading</a></li>
+      <li><a href="../../../sdk/1.6_r1/requirements.html">System Requirements</a></li>
+    </ul>
+    <ul>
+      <li><a href="../../../sdk/terms.html">SDK Terms and Conditions</a></li>
+      <li><a href="../../../sdk/RELEASENOTES.html">SDK Release Notes</a></li>
+    </ul>
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+
+
+
+<div class="g-unit" id="doc-content" >
+  <div id="jd-header" class="guide-header" >
+    <span class="crumb">&nbsp;</span>
+    <h1>Android 1.5 NDK, Release 1</h1>
+  </div>
+
+  <div id="jd-content">
+    <p><em>June 2009</em>
+    </p>
+
+
+
+
+
+<p>The sections below provide an overview of the SDK package. </p>
+
+ 
+
+
+
+      <h2 id="overview">What is the Android NDK?</h2>
+
+<p>The Android NDK provides tools that allow Android application developers
+to embed components that make use of native code in their Android applications.
+</p>
+
+<p>Android applications run in the Dalvik virtual machine. The NDK allows 
+developers to implement parts of their applications using native-code languages 
+such as C and C++. This can provide benefits to certain classes of applications, 
+in the form of reuse of existing code and in some cases increased speed.</p>
+
+<p>The NDK provides:</p>
+
+<ul>
+<li>A set of tools and build files used to generate native code libraries from C
+and C++ sources</li>
+<li>A way to embed the corresponding native libraries into application package
+files (.apks) that can be deployed on Android devices</li>
+<li>A set of native system headers and libraries that will be supported in all
+future versions of the Android platform, starting from Android 1.5 </li>
+<li>Documentation, samples, and tutorials</li>
+</ul>
+
+<p>This release of the NDK supports the ARMv5TE machine instruction set
+and provides stable headers for libc (the C library), libm (the Math library), 
+the JNI interface, and other libraries.</p>
+
+<p>The NDK will not benefit most applications. As a developer, you will need 
+to balance its benefits against its drawbacks; notably, using native code does 
+not result in an automatic performance increase, but does always increase 
+application complexity. Typical good candidates for the NDK are self-contained,
+CPU-intensive operations that don't allocate much memory, such as signal processing,
+physics simulation, and so on. Simply re-coding a method to run in C usually does 
+not result in a large performance increase. The NDK can, however, can be 
+an effective way to reuse a large corpus of existing C/C++ code.</p>
+
+<p>Please note that the NDK <em>does not</em> enable you to develop native-only
+applications. Android's primary runtime remains the Dalvik virtual machine.</p>
+
+<h2 id="contents">Contents of the NDK</h2>
+
+<h4>Development tools</h4>
+
+<p>The NDK includes a set of cross-toolchains (compilers, linkers, etc..) that
+can generate native ARM binaries on Linux, OS X, and Windows (with Cygwin)
+platforms.</p>
+
+<p>It provides a set of system headers for stable native APIs that are
+guaranteed to be supported in all later releases of the platform:</p>
+
+<ul>
+<li>libc (C library) headers</li>
+<li>libm (math library) headers</li>
+<li>JNI interface headers</li>
+<li>libz (Zlib compression) headers</li>
+<li>liblog (Android logging) header</li>
+<li>A Minimal set of headers for C++ support</li>
+</ul>
+
+<p>The NDK also provides a build system that lets you work efficiently with your
+sources, without having to handle the toolchain/platform/CPU/ABI details. You
+create very short build files to describe which sources to compile and which
+Android application will use them &mdash; the build system compiles the sources
+and places the shared libraries directly in your application project. </p>
+
+<p class="caution"><strong>Important:</strong> With the exception of the
+libraries listed above, native system libraries in the Android 1.5 platform are
+<em>not</em> stable and may change in future platform versions.
+Your applications should <em>only</em> make use of the stable native system
+libraries provided in this NDK. </p>
+
+<h4>Documentation</h4>
+
+<p>The NDK package includes a set of documentation that describes the
+capabilities of the NDK and how to use it to create shared libraries for your
+Android applications. In this release, the documentation is provided only in the
+downloadable NDK package. You can find the documentation in the
+<code>&lt;ndk&gt;/docs/</code> directory. Included are these files:</p>
+
+<ul>
+<li>INSTALL.TXT &mdash; describes how to install the NDK and configure it for
+your host system</li>
+<li>OVERVIEW.TXT &mdash; provides an overview of the NDK capabilities and
+usage</li>
+<li>ANDROID-MK.TXT &mdash; describes the use of the Android.mk file, which
+defines the native sources you want to compile</li>
+<li>APPLICATION-MK.TXT &mdash; describes the use of the Application.mk file,
+which describes the native sources required by your Android application</li>
+<li>HOWTO.TXT &mdash; information about common tasks associated with NDK 
+development.</li>
+<li>SYSTEM-ISSUES.TXT &mdash; known issues in the Android system images 
+that you should be aware of, if you are developing using the NDK. </li>
+<li>STABLE-APIS.TXT &mdash; a complete list of the stable APIs exposed
+by headers in the NDK.</li>
+</ul>
+
+<p>Additionally, the package includes detailed information about the "bionic"
+C library provided with the Android platform that you should be aware of, if you
+are developing using the NDK. You can find the documentation in the 
+<code>&lt;ndk&gt;/docs/system/libc/</code> directory:</p>
+
+<ul>
+<li>OVERVIEW.TXT &mdash; provides an overview of the "bionic" C library and the 
+features it offers.</li>
+</ul>
+
+<h4>Sample applications</h4>
+
+<p>The NDK includes two sample Android applications that illustrate how to use
+native code in your Android applications:</p>
+
+<ul>
+<li><code>hello-jni</code> &mdash; A simple application that loads a string from
+a native method implemented in a shared library and then displays it in the
+application UI. </li>
+<li><code>two-libs</code> &mdash; A simple application that loads a shared
+library dynamically and calls a native method provided by the library. In this
+case, the method is implemented in a static library that is imported by the 
+shared library. </li>
+</ul>
+
+<p>For more information, see <a href="#samples">Using the Sample
+Applications</a>.</p>
+
+<h2 id="requirements">System and Software Requirements</h2>
+
+<p>The sections below describe the system and software requirements for using
+the Android NDK, as well as platform compatibility considerations that affect
+appplications using libraries produced with the NDK. </p>
+
+<h4>The Android SDK</h4>
+<ul>
+  <li>A complete Android SDK installation (including all dependencies) is
+required.</li>
+  <li>Android 1.5 SDK or later version is required.</li>
+</ul>
+
+<h4>Supported operating systems</h4>
+<ul>
+  <li>Windows XP (32-bit) or Vista (32- or 64-bit)</li>
+  <li>Mac OS X 10.4.8 or later (x86 only)</li>
+  <li>Linux (32- or 64-bit, tested on Linux Ubuntu Dapper Drake)</li>
+</ul>
+
+<h4>Required development tools</h4>
+<ul>
+  <li>For all development platforms, GNU Make 3.81 or later is required. Earlier
+versions of GNU Make might work but have not been tested.</li>
+  <li>For Windows, a recent release of <a
+href="http://www.cygwin.com">Cygwin</a>, including both the gmake and gcc 
+packages, is required. </li>
+</ul>
+
+<h4>Android platform compatibility</h4>
+<ul>
+  <li>The native libraries created by the Android NDK can only be used on
+devices running the Android 1.5 platform version or later. This is due to 
+toolchain and ABI related changes that make the native libraries incompatible
+with 1.0 and 1.1 system images.</li>
+  <li>For this reason, you should use native libraries produced with the NDK in
+applications that are deployable to devices running the Android 1.5 platform
+version or later. To ensure compatibility, an application using a native library
+produced with the NDK must declare a <code>&lt;uses-library&gt;</code> element
+in its manifest file, with the attribute
+<code>android:minSdkVersion="3"</code>.</li>
+</ul>
+
+<h2 id="installing">Installing the NDK</h2>
+
+<p>Installing the NDK on your development computer is straightforward and
+involves extracting the NDK from its download package and running a host-setup
+script. </p>
+
+<p>Before you get started make sure that you have downloaded the latest <a
+href="../../../sdk/index.html">Android SDK</a> and upgraded your applications
+and environment as needed. The NDK will not work with older versions of the
+Android SDK. Also, take a moment to review the <a href="#requirements">System
+and Software Requirements</a> for the NDK, if you haven't already. </p>
+
+<p>To install the NDK, follow these steps:</p>
+
+<ol>
+<li>From the table at the top of this page, select the NDK package that is
+appropriate for your development computer and download the package.</li>
+<li>Uncompress the NDK download package using tools available on your computer.
+When uncompressed, the NDK files are contained in a directory called
+<code>android-ndk-&lt;version&gt;</code>. You can rename the NDK directory if
+necessary and you can move it to any location on your computer. This
+documentation refers to the NDK directory as <code>&lt;ndk&gt;</code>.  </li>
+<li>Open a terminal, change to the NDK directory, and run the host-setup script.
+The script sets up your environment and generates a host configuration file used
+later, when building your shared libraries. The path to the host-setup script
+is:
+
+<p><code>&lt;ndk&gt;/build/host-setup.sh</code></p>
+
+<p>If the script completes successfully, it prints a "Host setup complete."
+message. If it fails, it prints instructions that you can follow to correct any
+problems. </p>
+</li>
+</ol>
+
+<p>Once you have run the host-setup script, you are ready start working with the
+NDK. </p>
+
+<h2 id="gettingstarted">Getting Started with the NDK</h2>
+
+<p>Once you've installed the NDK successfully, take a few minutes to read the
+documentation included in the NDK. You can find the documentation in the
+<code>&lt;ndk&gt;/docs/</code> directory. In particular, please read the
+OVERVIEW.TXT document completely, so that you understand the intent of the NDK
+and how to use it.</p>
+
+<p>Here's the general outline of how you work with the NDK tools:</p>
+
+<ol>
+<li>Place your native sources under
+<code>&lt;ndk&gt;/sources/&lt;my_src&gt;/...</code>. If you want, you can place
+a symlink to your sources, rather than the sources themselves. The sources you
+reference here are not strictly associated with a specific shared library or
+Android application. Instead, they are accessible to any build configuration and
+can be used to produce any number of shared libraries that can be used by any
+Android application.</li>
+<li>Create <code>&lt;ndk&gt;/sources/&lt;my_src&gt;/Android.mk</code> to
+describe your native sources to the NDK build system</li>
+<li>Create <code>&lt;ndk&gt;/apps/&lt;my_app&gt;/Application.mk</code> to
+describe your Android application and native sources it needs to the NDK build
+system. This file sets up the link between an Android SDK application project
+and any number of shared libraries defined in the
+<code>&lt;ndk&gt;/sources/</code> folder and it specifies the path to the
+application project that will receive the shared library built from the
+sources.</li>
+<li>Build your native code by running this make command from the top-level NDK
+directory:
+
+<p><code>$ make APP=&lt;my_app&gt;</code></p>
+
+<p>The build tools copy the stripped, shared libraries needed by your
+application to the proper location in the application's project directory.</p>
+</li>
+
+<li>Finally, compile your application using the SDK tools in the usual way. The
+SDK build tools will package the shared libraries in the application's
+deployable .apk file. </p></li>
+
+</ol>
+
+<p>For complete information on all of the steps listed above, please see the
+documentation included with the NDK package. </p>
+
+
+<h2 id="samples">Using the Sample Applications</h2>
+
+<p>The NDK includes two sample applications that illustrate how to use native
+code in your Android applications:</p>
+
+<ul>
+<li><code>hello-jni</code> &mdash; A simple application that loads a string from
+a native method implemented in a shared library and then displays it in the
+application UI. </li>
+<li><code>two-libs</code> &mdash; A simple application that loads a shared
+library dynamically and calls a native method provided by the library. In this
+case, the method is implemented in a static library imported by the shared
+library. </li>
+</ul>
+
+<p>For each sample, the NDK includes an Android application project, as well as
+the corresponding C source code and the necessary Android.mk and Application.mk
+files. The application projects are provided in
+<code>&lt;ndk&gt;/apps/&lt;app_name&gt;/project/</code> and the C source for
+each application is provided in
+<code>&lt;ndk&gt;/sources/samples/&lt;library&gt;/</code>.</p>
+
+<p>Once you have installed the NDK, you can build the shared libraries from the
+NDK by using these commands from the root of the NDK directory:</p>
+<ul>
+<li><code>$ make APP=hello-jni</code> &mdash; compiles
+<code>&lt;ndk&gt;/sources/samples/hello-jni/hello-jni.c</code> and outputs a
+shared library to
+<code>&lt;ndk&gt;/apps/hello-jni/project/libs/armeabi/libhello-jni.so</code>.
+</li>
+<li><code>$ make APP=two-libs</code> &mdash; compiles
+<code>&lt;ndk&gt;/sources/samples/two-libs/second.c</code> and
+<code>first.c</code> and outputs a shared library to
+<code>&lt;ndk&gt;/apps/two-libs/project/libs/armeabi/libtwolib-second.so</code>.
+</li>
+</ul>
+
+<p>Next, build the sample Android applications that use the shared
+libraries:</p>
+
+<ul>
+<li>If you are developing in Eclipse with ADT, use the New Project Wizard to
+create a new Android project for each sample, using the "Import from Existing
+Source" option and importing the source from 
+<code>&lt;ndk&gt;/apps/&lt;app_name&gt;/project/</code>. Then, set up an AVD, if
+necessary, and build/run the application in the emulator. For more information
+about creating a new Android project in Eclipse, see <a
+href="../../../guide/developing/eclipse-adt.html">Developing in
+Eclipse</a>.</li>
+<li>If you are developing with Ant, use the <code>android</code> tool to create
+the build file for each of the sample projects at
+<code>&lt;ndk&gt;/apps/&lt;app_name&gt;/project/</code>. Then set up an AVD, if
+necessary, build your project in the usual way, and run it in the emulator. 
+For more information, see <a
+href="../../../guide/developing/other-ide.html">Developing in Other
+IDEs</a>.</li>
+</ul>
+
+<h2>Discussion Forum and Mailing List</h2>
+
+<p>If you have questions about the NDK or would like to read or contribute to
+discussions about it, please visit the <a
+href="http://groups.google.com/group/android-ndk">android-ndk</a> group and 
+mailing list.</p>
+
+
+
+
+
+</div><!-- end jd-content -->
+
+
+     <div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../license.html">Content 
+  License</a>.
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.android.com/terms.html">Site Terms of Service</a> -
+    <a href="http://www.android.com/privacy.html">Privacy Policy</a> -
+    <a href="http://www.android.com/branding.html">Brand Guidelines</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

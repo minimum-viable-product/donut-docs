@@ -1,0 +1,4164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>JSONObject - Android SDK | Android Developers</title>
+<link href="../../../assets/android-developer-docs.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<script src="../../../assets/android-developer-reference.js" type="text/javascript"></script>
+<script src="../../../navtree_data.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="1">
+<script type="text/javascript">
+function toggleInherited(linkObj, expand) {
+    var base = linkObj.getAttribute("id");
+    var list = document.getElementById(base + "-list");
+    var summary = document.getElementById(base + "-summary");
+    var trigger = document.getElementById(base + "-trigger");
+    var a = $(linkObj);
+    if ( (expand == null && a.hasClass("closed")) || expand ) {
+        list.style.display = "none";
+        summary.style.display = "block";
+        trigger.src = "../../../assets/images/triangle-opened.png";
+        a.removeClass("closed");
+        a.addClass("opened");
+    } else if ( (expand == null && a.hasClass("opened")) || (expand == false) ) {
+        list.style.display = "block";
+        summary.style.display = "none";
+        trigger.src = "../../../assets/images/triangle-closed.png";
+        a.removeClass("opened");
+        a.addClass("closed");
+    }
+    return false;
+}
+</script>
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="reference">
+         
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span class="de">Startseite</span>
+		<span class="es"></span>
+		<span class="fr"></span>
+		<span class="it"></span>
+                <span class="ja">ホーム</span>
+		<span class="zh-CN">主页</span>
+		<span class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/1.6_r1/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span class="de">Handbuch</span>
+		<span class="es">Guía</span>
+		<span class="fr">Guide</span>
+		<span class="it">Guida</span>
+                <span class="ja">開発ガイド</span>
+		<span class="zh-CN">开发人员指南</span>
+		<span class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span class="de">Referenz</span>
+		<span class="es">Referencia</span>
+		<span class="fr">Référence</span>
+		<span class="it">Riferimento</span>
+                <span class="ja">リファレンス</span>
+		<span class="zh-CN">参考</span>
+		<span class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span class="de"></span>
+		<span class="es"></span>
+		<span class="fr"></span>
+		<span class="it"></span>
+                <span class="ja">ブログ</span>
+		<span class="zh-CN">博客</span>
+		<span class="zh-TW">網誌</span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span class="de"></span>
+		<span class="es"></span>
+		<span class="fr"></span>
+		<span class="it"></span>
+                <span class="ja">ビデオ</span>
+		<span class="zh-CN"></span>
+		<span class="zh-TW"></span>
+	
+	</a></li>
+	<li id="community-link"><a href="../../../community/index.html">
+	
+		<span class="en">Community</span>
+		<span class="de"></span>
+		<span class="es">Comunidad</span>
+		<span class="fr">Communauté</span>
+		<span class="it"></span>
+                <span class="ja">コミュニティ</span>
+		<span class="zh-CN">社区</span>
+		<span class="zh-TW">社群</span>
+	
+	</a></li>
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+    			  <div id="api-level-toggle">
+    			    <label for="apiLevelControl"><a href="../../../guide/appendix/api-levels.html">Filter by API Level</a>: </label>
+    			    <select id="apiLevelControl">
+    			      <!-- option elements added by buildApiLevelToggle() -->
+    			    </select>
+    			  </div>
+    	 	    <script>
+              var SINCE_DATA = [ '1', '2', '3', '4' ];
+              buildApiLevelToggle();
+            </script>
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../reference/packages.html"  >Package Index</a> | 
+                <a href="../../../reference/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+              	
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/package-summary.html">android</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/accessibilityservice/package-summary.html">android.accessibilityservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/app/package-summary.html">android.app</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/pm/package-summary.html">android.content.pm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/content/res/package-summary.html">android.content.res</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/database/package-summary.html">android.database</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/database/sqlite/package-summary.html">android.database.sqlite</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/gesture/package-summary.html">android.gesture</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/package-summary.html">android.graphics</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/drawable/package-summary.html">android.graphics.drawable</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/graphics/drawable/shapes/package-summary.html">android.graphics.drawable.shapes</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/inputmethodservice/package-summary.html">android.inputmethodservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/location/package-summary.html">android.location</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/package-summary.html">android.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/http/package-summary.html">android.net.http</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/net/wifi/package-summary.html">android.net.wifi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/opengl/package-summary.html">android.opengl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/os/package-summary.html">android.os</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/preference/package-summary.html">android.preference</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/provider/package-summary.html">android.provider</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/sax/package-summary.html">android.sax</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/speech/package-summary.html">android.speech</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/speech/tts/package-summary.html">android.speech.tts</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/telephony/gsm/package-summary.html">android.telephony.gsm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/package-summary.html">android.test</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/mock/package-summary.html">android.test.mock</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/test/suitebuilder/package-summary.html">android.test.suitebuilder</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/package-summary.html">android.text</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/text/format/package-summary.html">android.text.format</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/method/package-summary.html">android.text.method</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/style/package-summary.html">android.text.style</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/text/util/package-summary.html">android.text.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/util/package-summary.html">android.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/view/package-summary.html">android.view</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../reference/android/view/accessibility/package-summary.html">android.view.accessibility</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/view/animation/package-summary.html">android.view.animation</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/android/view/inputmethod/package-summary.html">android.view.inputmethod</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/webkit/package-summary.html">android.webkit</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/android/widget/package-summary.html">android.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/com/android/internal/os/package-summary.html">com.android.internal.os</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/dalvik/bytecode/package-summary.html">dalvik.bytecode</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/dalvik/system/package-summary.html">dalvik.system</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/awt/font/package-summary.html">java.awt.font</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../reference/java/beans/package-summary.html">java.beans</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/io/package-summary.html">java.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/package-summary.html">java.lang</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/annotation/package-summary.html">java.lang.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/ref/package-summary.html">java.lang.ref</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/lang/reflect/package-summary.html">java.lang.reflect</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/math/package-summary.html">java.math</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/net/package-summary.html">java.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/package-summary.html">java.nio</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/channels/package-summary.html">java.nio.channels</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/channels/spi/package-summary.html">java.nio.channels.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/charset/package-summary.html">java.nio.charset</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/nio/charset/spi/package-summary.html">java.nio.charset.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/package-summary.html">java.security</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/acl/package-summary.html">java.security.acl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/cert/package-summary.html">java.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/interfaces/package-summary.html">java.security.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/security/spec/package-summary.html">java.security.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/sql/package-summary.html">java.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/text/package-summary.html">java.text</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/package-summary.html">java.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/package-summary.html">java.util.concurrent</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/atomic/package-summary.html">java.util.concurrent.atomic</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/concurrent/locks/package-summary.html">java.util.concurrent.locks</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/jar/package-summary.html">java.util.jar</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/logging/package-summary.html">java.util.logging</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/prefs/package-summary.html">java.util.prefs</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/regex/package-summary.html">java.util.regex</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/java/util/zip/package-summary.html">java.util.zip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/package-summary.html">javax.crypto</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/interfaces/package-summary.html">javax.crypto.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/crypto/spec/package-summary.html">javax.crypto.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/microedition/khronos/egl/package-summary.html">javax.microedition.khronos.egl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/microedition/khronos/opengles/package-summary.html">javax.microedition.khronos.opengles</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/net/package-summary.html">javax.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/net/ssl/package-summary.html">javax.net.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/package-summary.html">javax.security.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/callback/package-summary.html">javax.security.auth.callback</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/login/package-summary.html">javax.security.auth.login</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/auth/x500/package-summary.html">javax.security.auth.x500</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/security/cert/package-summary.html">javax.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/sql/package-summary.html">javax.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/xml/package-summary.html">javax.xml</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/javax/xml/parsers/package-summary.html">javax.xml.parsers</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/junit/framework/package-summary.html">junit.framework</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/junit/runner/package-summary.html">junit.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/package-summary.html">org.apache.http</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/auth/package-summary.html">org.apache.http.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/auth/params/package-summary.html">org.apache.http.auth.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/package-summary.html">org.apache.http.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/entity/package-summary.html">org.apache.http.client.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/methods/package-summary.html">org.apache.http.client.methods</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/params/package-summary.html">org.apache.http.client.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/protocol/package-summary.html">org.apache.http.client.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/client/utils/package-summary.html">org.apache.http.client.utils</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/package-summary.html">org.apache.http.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/params/package-summary.html">org.apache.http.conn.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/routing/package-summary.html">org.apache.http.conn.routing</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/scheme/package-summary.html">org.apache.http.conn.scheme</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/ssl/package-summary.html">org.apache.http.conn.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/conn/util/package-summary.html">org.apache.http.conn.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/cookie/package-summary.html">org.apache.http.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/cookie/params/package-summary.html">org.apache.http.cookie.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/entity/package-summary.html">org.apache.http.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/package-summary.html">org.apache.http.impl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/auth/package-summary.html">org.apache.http.impl.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/client/package-summary.html">org.apache.http.impl.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/conn/package-summary.html">org.apache.http.impl.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/conn/tsccm/package-summary.html">org.apache.http.impl.conn.tsccm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/cookie/package-summary.html">org.apache.http.impl.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/entity/package-summary.html">org.apache.http.impl.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/impl/io/package-summary.html">org.apache.http.impl.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/io/package-summary.html">org.apache.http.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/message/package-summary.html">org.apache.http.message</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/params/package-summary.html">org.apache.http.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/protocol/package-summary.html">org.apache.http.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/apache/http/util/package-summary.html">org.apache.http.util</a></li>
+    <li class="selected api apilevel-1">
+  <a href="../../../reference/org/json/package-summary.html">org.json</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/w3c/dom/package-summary.html">org.w3c.dom</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/package-summary.html">org.xml.sax</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/ext/package-summary.html">org.xml.sax.ext</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xml/sax/helpers/package-summary.html">org.xml.sax.helpers</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xmlpull/v1/package-summary.html">org.xmlpull.v1</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../reference/org/xmlpull/v1/sax2/package-summary.html">org.xmlpull.v1.sax2</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../reference/org/json/JSONArray.html">JSONArray</a></li>
+          <li class="selected api apilevel-1"><a href="../../../reference/org/json/JSONObject.html">JSONObject</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/org/json/JSONStringer.html">JSONStringer</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/org/json/JSONTokener.html">JSONTokener</a></li>
+      </ul>
+    </li>
+              
+              
+    <li><h2>Exceptions</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../reference/org/json/JSONException.html">JSONException</a></li>
+      </ul>
+    </li>
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../reference/packages.html"  >Package Index</a> | 
+            <a href="../../../reference/classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+Summary:
+
+
+
+
+
+  <a href="#constants">Constants</a>
+  
+
+
+
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+
+&#124; <a href="#" onclick="return toggleAllSummaryInherited(this)">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    class
+<h1>JSONObject</h1>
+
+
+
+  
+    extends <a href="../../../reference/java/lang/Object.html">Object</a><br/>
+  
+  
+  
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-1">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../reference/java/lang/Object.html">java.lang.Object</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">org.json.JSONObject</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p>A JSONObject is an unordered collection of name/value pairs. Its
+ external form is a string wrapped in curly braces with colons between the
+ names and values, and commas between the values and names. The internal form
+ is an object having <code>get</code> and <code>opt</code> methods for 
+ accessing the values by name, and <code>put</code> methods for adding or 
+ replacing values by name. The values can be any of these types: 
+ <code>Boolean</code>, <code>JSONArray</code>, <code>JSONObject</code>, 
+ <code>Number</code>, <code>String</code>, or the <code>JSONObject.NULL</code> 
+ object. A JSONObject constructor can be used to convert an external form
+ JSON text into an internal form whose values can be retrieved with the 
+ <code>get</code> and <code>opt</code> methods, or to convert values into a 
+ JSON text using the <code>put</code> and <code>toString</code> methods.
+ A <code>get</code> method returns a value if one can be found, and throws an 
+ exception if one cannot be found. An <code>opt</code> method returns a 
+ default value instead of throwing an exception, and so is useful for 
+ obtaining optional values.
+ <p>
+ The generic <code>get()</code> and <code>opt()</code> methods return an 
+ object, which you can cast or query for type. There are also typed 
+ <code>get</code> and <code>opt</code> methods that do type checking and type 
+ coersion for you.
+ <p>
+ The <code>put</code> methods adds values to an object. For example, <pre>
+     myString = new JSONObject().put("JSON", "Hello, World!").toString();</pre>
+ produces the string <code>{"JSON": "Hello, World"}</code>.
+ <p>
+ The texts produced by the <code>toString</code> methods strictly conform to
+ the JSON sysntax rules.
+ The constructors are more forgiving in the texts they will accept:
+ <ul>
+ <li>An extra <code>,</code>&nbsp;<small>(comma)</small> may appear just
+     before the closing brace.</li>
+ <li>Strings may be quoted with <code>'</code>&nbsp;<small>(single
+     quote)</small>.</li>
+ <li>Strings do not need to be quoted at all if they do not begin with a quote
+     or single quote, and if they do not contain leading or trailing spaces,
+     and if they do not contain any of these characters:
+     <code>{ } [ ] / \ : , = ; #</code> and if they do not look like numbers
+     and if they are not the reserved words <code>true</code>,
+     <code>false</code>, or <code>null</code>.</li>
+ <li>Keys can be followed by <code>=</code> or <code>=></code> as well as
+     by <code>:</code>.</li>
+ <li>Values can be followed by <code>;</code> <small>(semicolon)</small> as 
+     well as by <code>,</code> <small>(comma)</small>.</li>
+ <li>Numbers may have the <code>0-</code> <small>(octal)</small> or
+     <code>0x-</code> <small>(hex)</small> prefix.</li>
+ <li>Comments written in the slashshlash, slashstar, and hash conventions
+     will be ignored.</li>
+ </ul></p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
+
+
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/Object.html">Object</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/org/json/JSONObject.html#NULL">NULL</a></td>
+        <td class="jd-descrcol" width="100%">It is sometimes more convenient and less ambiguous to have a 
+ <code>NULL</code> object than to use Java's <code>null</code> value.</td>
+    </tr>
+    
+    
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#JSONObject()">
+        JSONObject</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Construct an empty JSONObject.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#JSONObject(org.json.JSONObject, java.lang.String[])">
+        JSONObject</a></span>(<a href="../../../reference/org/json/JSONObject.html">JSONObject</a> jo, <a href="../../../reference/java/lang/String.html">String[]</a> sa)</nobr>
+        
+        <div class="jd-descrdiv">Construct a JSONObject from a subset of another JSONObject.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#JSONObject(org.json.JSONTokener)">
+        JSONObject</a></span>(<a href="../../../reference/org/json/JSONTokener.html">JSONTokener</a> x)</nobr>
+        
+        <div class="jd-descrdiv">Construct a JSONObject from a JSONTokener.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#JSONObject(java.util.Map)">
+        JSONObject</a></span>(<a href="../../../reference/java/util/Map.html">Map</a> map)</nobr>
+        
+        <div class="jd-descrdiv">Construct a JSONObject from a Map.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#JSONObject(java.lang.String)">
+        JSONObject</a></span>(<a href="../../../reference/java/lang/String.html">String</a> string)</nobr>
+        
+        <div class="jd-descrdiv">Construct a JSONObject from a string.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/org/json/JSONObject.html">JSONObject</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#accumulate(java.lang.String, java.lang.Object)">
+        accumulate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, <a href="../../../reference/java/lang/Object.html">Object</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Accumulate values under a key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#get(java.lang.String)">
+        get</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Get the value object associated with a key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#getBoolean(java.lang.String)">
+        getBoolean</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Get the boolean value associated with a key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            double</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#getDouble(java.lang.String)">
+        getDouble</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Get the double value associated with a key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#getInt(java.lang.String)">
+        getInt</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Get the int value associated with a key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/org/json/JSONArray.html">JSONArray</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#getJSONArray(java.lang.String)">
+        getJSONArray</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Get the JSONArray value associated with a key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/org/json/JSONObject.html">JSONObject</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#getJSONObject(java.lang.String)">
+        getJSONObject</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Get the JSONObject value associated with a key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#getLong(java.lang.String)">
+        getLong</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Get the long value associated with a key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#getString(java.lang.String)">
+        getString</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Get the string associated with a key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#has(java.lang.String)">
+        has</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Determine if the JSONObject contains a specific key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#isNull(java.lang.String)">
+        isNull</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Determine if the value associated with the key is null or if there is
+  no value.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/util/Iterator.html">Iterator</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#keys()">
+        keys</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get an enumeration of the keys of the JSONObject.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#length()">
+        length</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get the number of keys stored in the JSONObject.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/org/json/JSONArray.html">JSONArray</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#names()">
+        names</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Produce a JSONArray containing the names of the elements of this
+ JSONObject.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#numberToString(java.lang.Number)">
+        numberToString</a></span>(<a href="../../../reference/java/lang/Number.html">Number</a> n)</nobr>
+        
+        <div class="jd-descrdiv">Produce a string from a number.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#opt(java.lang.String)">
+        opt</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Get an optional value associated with a key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#optBoolean(java.lang.String)">
+        optBoolean</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Get an optional boolean associated with a key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#optBoolean(java.lang.String, boolean)">
+        optBoolean</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, boolean defaultValue)</nobr>
+        
+        <div class="jd-descrdiv">Get an optional boolean associated with a key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            double</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#optDouble(java.lang.String)">
+        optDouble</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Get an optional double associated with a key,
+ or NaN if there is no such key or if its value is not a number.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            double</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#optDouble(java.lang.String, double)">
+        optDouble</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, double defaultValue)</nobr>
+        
+        <div class="jd-descrdiv">Get an optional double associated with a key, or the
+ defaultValue if there is no such key or if its value is not a number.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#optInt(java.lang.String, int)">
+        optInt</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, int defaultValue)</nobr>
+        
+        <div class="jd-descrdiv">Get an optional int value associated with a key,
+ or the default if there is no such key or if the value is not a number.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#optInt(java.lang.String)">
+        optInt</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Get an optional int value associated with a key,
+ or zero if there is no such key or if the value is not a number.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/org/json/JSONArray.html">JSONArray</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#optJSONArray(java.lang.String)">
+        optJSONArray</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Get an optional JSONArray associated with a key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/org/json/JSONObject.html">JSONObject</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#optJSONObject(java.lang.String)">
+        optJSONObject</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Get an optional JSONObject associated with a key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#optLong(java.lang.String, long)">
+        optLong</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, long defaultValue)</nobr>
+        
+        <div class="jd-descrdiv">Get an optional long value associated with a key,
+ or the default if there is no such key or if the value is not a number.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#optLong(java.lang.String)">
+        optLong</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Get an optional long value associated with a key,
+ or zero if there is no such key or if the value is not a number.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#optString(java.lang.String, java.lang.String)">
+        optString</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, <a href="../../../reference/java/lang/String.html">String</a> defaultValue)</nobr>
+        
+        <div class="jd-descrdiv">Get an optional string associated with a key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#optString(java.lang.String)">
+        optString</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Get an optional string associated with a key.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/org/json/JSONObject.html">JSONObject</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#put(java.lang.String, boolean)">
+        put</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, boolean value)</nobr>
+        
+        <div class="jd-descrdiv">Put a key/boolean pair in the JSONObject.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/org/json/JSONObject.html">JSONObject</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#put(java.lang.String, double)">
+        put</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, double value)</nobr>
+        
+        <div class="jd-descrdiv">Put a key/double pair in the JSONObject.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/org/json/JSONObject.html">JSONObject</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#put(java.lang.String, java.lang.Object)">
+        put</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, <a href="../../../reference/java/lang/Object.html">Object</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Put a key/value pair in the JSONObject.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/org/json/JSONObject.html">JSONObject</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#put(java.lang.String, int)">
+        put</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, int value)</nobr>
+        
+        <div class="jd-descrdiv">Put a key/int pair in the JSONObject.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/org/json/JSONObject.html">JSONObject</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#put(java.lang.String, long)">
+        put</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, long value)</nobr>
+        
+        <div class="jd-descrdiv">Put a key/long pair in the JSONObject.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/org/json/JSONObject.html">JSONObject</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#putOpt(java.lang.String, java.lang.Object)">
+        putOpt</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, <a href="../../../reference/java/lang/Object.html">Object</a> value)</nobr>
+        
+        <div class="jd-descrdiv">Put a key/value pair in the JSONObject, but only if the
+ key and the value are both non-null.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#quote(java.lang.String)">
+        quote</a></span>(<a href="../../../reference/java/lang/String.html">String</a> string)</nobr>
+        
+        <div class="jd-descrdiv">Produce a string in double quotes with backslash sequences in all the
+ right places.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#remove(java.lang.String)">
+        remove</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        
+        <div class="jd-descrdiv">Remove a name and its value, if present.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/org/json/JSONArray.html">JSONArray</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#toJSONArray(org.json.JSONArray)">
+        toJSONArray</a></span>(<a href="../../../reference/org/json/JSONArray.html">JSONArray</a> names)</nobr>
+        
+        <div class="jd-descrdiv">Produce a JSONArray containing the values of the members of this
+ JSONObject.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#toString()">
+        toString</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Make an JSON text of this JSONObject.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/org/json/JSONObject.html#toString(int)">
+        toString</a></span>(int indentFactor)</nobr>
+        
+        <div class="jd-descrdiv">Make a prettyprinted JSON text of this JSONObject.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class <a href="../../../reference/java/lang/Object.html">java.lang.Object</a>
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">
+        clone</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Creates and returns a copy of this <code class="Code prettyprint">Object</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">
+        equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
+        
+        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
+ are equal.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">
+        finalize</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Is called before the object's memory is being reclaimed by the VM.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="../../../reference/java/lang/Class.html">Class</a>&lt;?&nbsp;extends&nbsp;<a href="../../../reference/java/lang/Object.html">Object</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">
+        getClass</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the unique instance of <a href="../../../reference/java/lang/Class.html">Class</a> which represents this
+ object's class.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">
+        hashCode</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">
+        notify</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code class="Code prettyprint">wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">
+        notifyAll</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code class="Code prettyprint">wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">
+        toString</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
+ object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">
+        wait</a></span>(long millis, int nanos)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code class="Code prettyprint">notify()</code> or <code class="Code prettyprint">notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">
+        wait</a></span>(long millis)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code class="Code prettyprint">notify()</code> or <code class="Code prettyprint">notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">
+        wait</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code class="Code prettyprint">notify()</code> or <code class="Code prettyprint">notifyAll()</code> method of this object.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Constants</h2>
+
+
+
+
+<A NAME="NULL"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/Object.html">Object</a>
+      </span>
+        NULL
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>It is sometimes more convenient and less ambiguous to have a 
+ <code>NULL</code> object than to use Java's <code>null</code> value.
+ <code>JSONObject.NULL.equals(null)</code> returns <code>true</code>.
+ <code>JSONObject.NULL.toString()</code> returns <code>"null"</code>.
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="JSONObject()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">JSONObject</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Construct an empty JSONObject.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="JSONObject(org.json.JSONObject, java.lang.String[])"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">JSONObject</span>
+      <span class="normal">(<a href="../../../reference/org/json/JSONObject.html">JSONObject</a> jo, <a href="../../../reference/java/lang/String.html">String[]</a> sa)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Construct a JSONObject from a subset of another JSONObject.
+ An array of strings is used to identify the keys that should be copied. 
+ Missing keys are ignored.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>jo</td>
+          <td>A JSONObject.</td>
+        </tr>
+        <tr>
+          <th>sa</td>
+          <td>An array of strings.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>If a value is a non-finite number.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="JSONObject(org.json.JSONTokener)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">JSONObject</span>
+      <span class="normal">(<a href="../../../reference/org/json/JSONTokener.html">JSONTokener</a> x)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Construct a JSONObject from a JSONTokener.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>x</td>
+          <td>A JSONTokener object containing the source string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>If there is a syntax error in the source string.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="JSONObject(java.util.Map)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">JSONObject</span>
+      <span class="normal">(<a href="../../../reference/java/util/Map.html">Map</a> map)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Construct a JSONObject from a Map.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>map</td>
+          <td>A map object that can be used to initialize the contents of
+  the JSONObject.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="JSONObject(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">JSONObject</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> string)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Construct a JSONObject from a string.
+ This is the most commonly used JSONObject constructor.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>string</td>
+          <td>A string beginning
+  with <code>{</code>&nbsp;<small>(left brace)</small> and ending
+  with <code>}</code>&nbsp;<small>(right brace)</small>.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>If there is a syntax error in the source string.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="accumulate(java.lang.String, java.lang.Object)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/org/json/JSONObject.html">JSONObject</a>
+      </span>
+      <span class="sympad">accumulate</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key, <a href="../../../reference/java/lang/Object.html">Object</a> value)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Accumulate values under a key. It is similar to the put method except
+ that if there is already an object stored under the key then a
+ JSONArray is stored under the key to hold all of the accumulated values.
+ If there is already a JSONArray, then the new value is appended to it.
+ In contrast, the put method replaces the previous value.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+        <tr>
+          <th>value</td>
+          <td>An object to be accumulated under the key.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>this.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>If the value is an invalid number 
+  or if the key is null.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="get(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/lang/Object.html">Object</a>
+      </span>
+      <span class="sympad">get</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the value object associated with a key.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The object associated with the key.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>if the key is not found.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getBoolean(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">getBoolean</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the boolean value associated with a key.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The truth.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>if the value is not a Boolean or the String "true" or "false".
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getDouble(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        double
+      </span>
+      <span class="sympad">getDouble</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the double value associated with a key.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The numeric value.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>if the key is not found or
+  if the value is not a Number object and cannot be converted to a number.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getInt(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getInt</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the int value associated with a key. If the number value is too
+ large for an int, it will be clipped.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The integer value.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>if the key is not found or if the value cannot
+     be converted to an integer.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getJSONArray(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/org/json/JSONArray.html">JSONArray</a>
+      </span>
+      <span class="sympad">getJSONArray</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the JSONArray value associated with a key.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>A JSONArray which is the value.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>if the key is not found or
+  if the value is not a JSONArray.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getJSONObject(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/org/json/JSONObject.html">JSONObject</a>
+      </span>
+      <span class="sympad">getJSONObject</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the JSONObject value associated with a key.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>A JSONObject which is the value.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>if the key is not found or
+  if the value is not a JSONObject.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLong(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">getLong</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the long value associated with a key. If the number value is too
+ long for a long, it will be clipped.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The long value.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>if the key is not found or if the value cannot
+     be converted to a long.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getString(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">getString</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the string associated with a key.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>A string which is the value.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>if the key is not found.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="has(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">has</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Determine if the JSONObject contains a specific key.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the key exists in the JSONObject.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="isNull(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isNull</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Determine if the value associated with the key is null or if there is
+  no value.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if there is no value associated with the key or if
+  the value is the JSONObject.NULL object.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="keys()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/util/Iterator.html">Iterator</a>
+      </span>
+      <span class="sympad">keys</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get an enumeration of the keys of the JSONObject.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>An iterator of the keys.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="length()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">length</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the number of keys stored in the JSONObject.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The number of keys in the JSONObject.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="names()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/org/json/JSONArray.html">JSONArray</a>
+      </span>
+      <span class="sympad">names</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Produce a JSONArray containing the names of the elements of this
+ JSONObject.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>A JSONArray containing the key strings, or null if the JSONObject
+ is empty.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="numberToString(java.lang.Number)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">numberToString</span>
+      <span class="normal">(<a href="../../../reference/java/lang/Number.html">Number</a> n)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Produce a string from a number.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>n</td>
+          <td>A Number</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>A String.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>If n is a non-finite number.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="opt(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/lang/Object.html">Object</a>
+      </span>
+      <span class="sympad">opt</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get an optional value associated with a key.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>An object which is the value, or null if there is no value.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="optBoolean(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">optBoolean</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get an optional boolean associated with a key.
+ It returns false if there is no such key, or if the value is not
+ Boolean.TRUE or the String "true".</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The truth.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="optBoolean(java.lang.String, boolean)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">optBoolean</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key, boolean defaultValue)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get an optional boolean associated with a key.
+ It returns the defaultValue if there is no such key, or if it is not
+ a Boolean or the String "true" or "false" (case insensitive).</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+        <tr>
+          <th>defaultValue</td>
+          <td>The default.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The truth.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="optDouble(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        double
+      </span>
+      <span class="sympad">optDouble</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get an optional double associated with a key,
+ or NaN if there is no such key or if its value is not a number.
+ If the value is a string, an attempt will be made to evaluate it as
+ a number.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A string which is the key.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>An object which is the value.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="optDouble(java.lang.String, double)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        double
+      </span>
+      <span class="sympad">optDouble</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key, double defaultValue)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get an optional double associated with a key, or the
+ defaultValue if there is no such key or if its value is not a number.
+ If the value is a string, an attempt will be made to evaluate it as
+ a number.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+        <tr>
+          <th>defaultValue</td>
+          <td>The default.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>An object which is the value.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="optInt(java.lang.String, int)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">optInt</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key, int defaultValue)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get an optional int value associated with a key,
+ or the default if there is no such key or if the value is not a number.
+ If the value is a string, an attempt will be made to evaluate it as
+ a number.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+        <tr>
+          <th>defaultValue</td>
+          <td>The default.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>An object which is the value.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="optInt(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">optInt</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get an optional int value associated with a key,
+ or zero if there is no such key or if the value is not a number.
+ If the value is a string, an attempt will be made to evaluate it as
+ a number.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>An object which is the value.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="optJSONArray(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/org/json/JSONArray.html">JSONArray</a>
+      </span>
+      <span class="sympad">optJSONArray</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get an optional JSONArray associated with a key.
+ It returns null if there is no such key, or if its value is not a
+ JSONArray.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>A JSONArray which is the value.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="optJSONObject(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/org/json/JSONObject.html">JSONObject</a>
+      </span>
+      <span class="sympad">optJSONObject</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get an optional JSONObject associated with a key.
+ It returns null if there is no such key, or if its value is not a
+ JSONObject.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>A JSONObject which is the value.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="optLong(java.lang.String, long)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">optLong</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key, long defaultValue)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get an optional long value associated with a key,
+ or the default if there is no such key or if the value is not a number.
+ If the value is a string, an attempt will be made to evaluate it as
+ a number.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+        <tr>
+          <th>defaultValue</td>
+          <td>The default.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>An object which is the value.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="optLong(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">optLong</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get an optional long value associated with a key,
+ or zero if there is no such key or if the value is not a number.
+ If the value is a string, an attempt will be made to evaluate it as
+ a number.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>An object which is the value.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="optString(java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">optString</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key, <a href="../../../reference/java/lang/String.html">String</a> defaultValue)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get an optional string associated with a key.
+ It returns the defaultValue if there is no such key.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+        <tr>
+          <th>defaultValue</td>
+          <td>The default.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>A string which is the value.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="optString(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">optString</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get an optional string associated with a key.
+ It returns an empty string if there is no such key. If the value is not
+ a string and is not null, then it is coverted to a string.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>A string which is the value.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="put(java.lang.String, boolean)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/org/json/JSONObject.html">JSONObject</a>
+      </span>
+      <span class="sympad">put</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key, boolean value)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Put a key/boolean pair in the JSONObject.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+        <tr>
+          <th>value</td>
+          <td>A boolean which is the value.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>this.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>If the key is null.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="put(java.lang.String, double)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/org/json/JSONObject.html">JSONObject</a>
+      </span>
+      <span class="sympad">put</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key, double value)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Put a key/double pair in the JSONObject.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+        <tr>
+          <th>value</td>
+          <td>A double which is the value.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>this.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>If the key is null or if the number is invalid.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="put(java.lang.String, java.lang.Object)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/org/json/JSONObject.html">JSONObject</a>
+      </span>
+      <span class="sympad">put</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key, <a href="../../../reference/java/lang/Object.html">Object</a> value)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Put a key/value pair in the JSONObject. If the value is null,
+ then the key will be removed from the JSONObject if it is present.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+        <tr>
+          <th>value</td>
+          <td>An object which is the value. It should be of one of these
+  types: Boolean, Double, Integer, JSONArray, JSONObject, Long, String, 
+  or the JSONObject.NULL object.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>this.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>If the value is non-finite number 
+     or if the key is null.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="put(java.lang.String, int)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/org/json/JSONObject.html">JSONObject</a>
+      </span>
+      <span class="sympad">put</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key, int value)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Put a key/int pair in the JSONObject.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+        <tr>
+          <th>value</td>
+          <td>An int which is the value.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>this.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>If the key is null.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="put(java.lang.String, long)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/org/json/JSONObject.html">JSONObject</a>
+      </span>
+      <span class="sympad">put</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key, long value)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Put a key/long pair in the JSONObject.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+        <tr>
+          <th>value</td>
+          <td>A long which is the value.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>this.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>If the key is null.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="putOpt(java.lang.String, java.lang.Object)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/org/json/JSONObject.html">JSONObject</a>
+      </span>
+      <span class="sympad">putOpt</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key, <a href="../../../reference/java/lang/Object.html">Object</a> value)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Put a key/value pair in the JSONObject, but only if the
+ key and the value are both non-null.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>A key string.</td>
+        </tr>
+        <tr>
+          <th>value</td>
+          <td>An object which is the value. It should be of one of these
+  types: Boolean, Double, Integer, JSONArray, JSONObject, Long, String, 
+  or the JSONObject.NULL object.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>this.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>If the value is a non-finite number.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="quote(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">quote</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> string)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Produce a string in double quotes with backslash sequences in all the
+ right places. A backslash will be inserted within &lt;/, allowing JSON
+ text to be delivered in HTML. In JSON text, a string cannot contain a
+ control character or an unescaped quote or backslash.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>string</td>
+          <td>A String</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>A String correctly formatted for insertion in a JSON text.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="remove(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/lang/Object.html">Object</a>
+      </span>
+      <span class="sympad">remove</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> key)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Remove a name and its value, if present.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>key</td>
+          <td>The name to be removed.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The value that was associated with the name,
+ or null if there was no value.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="toJSONArray(org.json.JSONArray)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/org/json/JSONArray.html">JSONArray</a>
+      </span>
+      <span class="sympad">toJSONArray</span>
+      <span class="normal">(<a href="../../../reference/org/json/JSONArray.html">JSONArray</a> names)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Produce a JSONArray containing the values of the members of this
+ JSONObject.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>names</td>
+          <td>A JSONArray containing a list of key strings. This
+ determines the sequence of the values in the result.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>A JSONArray of values.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>If any of the values are non-finite numbers.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="toString()"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">toString</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Make an JSON text of this JSONObject. For compactness, no whitespace
+ is added. If this would not result in a syntactically correct JSON text, 
+ then null will be returned instead.
+ <p>
+ Warning: This method assumes that the data structure is acyclical.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a printable, displayable, portable, transmittable
+  representation of the object, beginning
+  with <code>{</code>&nbsp;<small>(left brace)</small> and ending
+  with <code>}</code>&nbsp;<small>(right brace)</small>.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="toString(int)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">toString</span>
+      <span class="normal">(int indentFactor)</span>
+    </h4>
+      <div class="api-level">
+        
+  Since: <a href="../../../guide/appendix/api-levels.html#level1">API Level 1</a>
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Make a prettyprinted JSON text of this JSONObject.
+ <p>
+ Warning: This method assumes that the data structure is acyclical.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>indentFactor</td>
+          <td>The number of spaces to add to each level of
+  indentation.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a printable, displayable, portable, transmittable
+  representation of the object, beginning
+  with <code>{</code>&nbsp;<small>(left brace)</small> and ending
+  with <code>}</code>&nbsp;<small>(right brace)</small>.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/org/json/JSONException.html">JSONException</a></td>
+            <td>If the object contains an invalid number.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 1.6&nbsp;r1 - 03 Sep 2009 10:53
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.android.com/terms.html">Site Terms of Service</a> -
+    <a href="http://www.android.com/privacy.html">Privacy Policy</a> -
+    <a href="http://www.android.com/branding.html">Brand Guidelines</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

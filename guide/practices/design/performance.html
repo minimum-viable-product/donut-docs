@@ -1,0 +1,1260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>Designing for Performance | Android Developers</title>
+<link href="../../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="gc-documentation">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../../index.html" tabindex="-1"><img
+              src="../../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="guide">
+         
+	<li id="home-link"><a href="../../../offline.html">
+	
+		<span class="en">Home</span>
+		<span class="de">Startseite</span>
+		<span class="es"></span>
+		<span class="fr"></span>
+		<span class="it"></span>
+                <span class="ja">ホーム</span>
+		<span class="zh-CN">主页</span>
+		<span class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../../sdk/1.6_r1/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span class="de">Handbuch</span>
+		<span class="es">Guía</span>
+		<span class="fr">Guide</span>
+		<span class="it">Guida</span>
+                <span class="ja">開発ガイド</span>
+		<span class="zh-CN">开发人员指南</span>
+		<span class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span class="de">Referenz</span>
+		<span class="es">Referencia</span>
+		<span class="fr">Référence</span>
+		<span class="it">Riferimento</span>
+                <span class="ja">リファレンス</span>
+		<span class="zh-CN">参考</span>
+		<span class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span class="de"></span>
+		<span class="es"></span>
+		<span class="fr"></span>
+		<span class="it"></span>
+                <span class="ja">ブログ</span>
+		<span class="zh-CN">博客</span>
+		<span class="zh-TW">網誌</span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span class="de"></span>
+		<span class="es"></span>
+		<span class="fr"></span>
+		<span class="it"></span>
+                <span class="ja">ビデオ</span>
+		<span class="zh-CN"></span>
+		<span class="zh-TW"></span>
+	
+	</a></li>
+	<li id="community-link"><a href="../../../community/index.html">
+	
+		<span class="en">Community</span>
+		<span class="de"></span>
+		<span class="es">Comunidad</span>
+		<span class="fr">Communauté</span>
+		<span class="it"></span>
+                <span class="ja">コミュニティ</span>
+		<span class="zh-CN">社区</span>
+		<span class="zh-TW">社群</span>
+	
+	</a></li>
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../')"
+                      onkeyup="return search_changed(event, false, '../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="devdoc-nav">
+<ul>
+
+  <li>
+    <h2><span class="en">Android Basics</span>
+        <span class="de">Einführung in Android</span>
+        <span class="es">Información básica sobre Android</span>
+        <span class="fr">Présentation d'Android</span>
+        <span class="it">Nozioni di base su Android</span>
+        <span class="ja">Android の基本</span>
+        <span class="zh-CN">Android 基础知识</span>
+        <span class="zh-TW">Android 簡介</span>
+    </h2>
+    <ul>
+      <li><a href="../../../guide/basics/what-is-android.html">
+        <span class="en">What Is Android?</span>
+        <span class="de">Was ist Android?</span>
+        <span class="es">¿Qué es Android?</span>
+        <span class="fr">Qu'est-ce qu'Android&nbsp;?</span>
+        <span class="it">Che cos'è Android?</span>
+        <span class="ja">Android とは</span>
+        <span class="zh-CN">Android 是什么？</span>
+        <span class="zh-TW">什麼是 Android？</span>
+          </a></li>
+  <!--  <li><a style="color:gray;">The Android SDK</a></li> -->
+  <!--  <li><a style="color:gray;">Walkthrough for Developers</a></li> -->
+      <!-- quick overview of what it's like to develop on Android -->
+    </ul>
+  </li>
+  
+  <li>
+    <h2>
+      <span class="en">Framework Topics</span>
+      <span class="de">Framework-Themen</span>
+      <span class="es">Temas sobre el framework</span>
+      <span class="fr">Thèmes relatifs au framework</span>
+      <span class="it">Argomenti relativi al framework</span>
+      <span class="ja">フレームワーク トピック</span>
+      <span class="zh-CN">框架主题</span>
+      <span class="zh-TW">架構主題</span>
+    </h2>
+    <ul>
+      <li><a href="../../../guide/topics/fundamentals.html">
+            <span class="en">Application Fundamentals</span>
+            <span class="de" style="display:none">Anwendungsgrundlagen</span>
+            <span class="es" style="display:none">Fundamentos de las aplicaciones</span>
+            <span class="fr" style="display:none">Principes de base des applications</span>
+            <span class="it" style="display:none">Concetti fondamentali sulle applicazioni</span>
+            <span class="ja" style="display:none">開発の基礎</span>
+            <span class="zh-CN" style="display:none">应用程序基础</span>
+            <span class="zh-TW" style="display:none">應用程式基本原理</span>
+
+          </a></li>
+    </ul>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/ui/index.html">
+               <span class="en">User Interface</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/declaring-layout.html">
+               <span class="en">Declaring Layout</span> 
+              </a></li>
+          <li><a href="../../../guide/topics/ui/menus.html">
+               <span class="en">Creating Menus</span> 
+              </a></li>
+          <li><a href="../../../guide/topics/ui/dialogs.html">
+                <span class="en">Creating Dialogs</span> 
+              </a></li>
+          <li><a href="../../../guide/topics/ui/ui-events.html">
+                <span class="en">Handling UI Events</span> 
+              </a></li>
+          <li><a href="../../../guide/topics/ui/notifiers/index.html">
+                <span class="en">Notifying the User</span> 
+              </a></li>
+          <li><a href="../../../guide/topics/ui/themes.html">
+                <span class="en">Applying Styles and Themes</span> 
+              </a></li>
+          <li><a href="../../../guide/topics/ui/custom-components.html">
+                <span class="en">Building Custom Components</span> 
+              </a></li>
+          <li><a href="../../../guide/topics/ui/binding.html">
+                <span class="en">Binding to Data with AdapterView</span> 
+              </a></li>
+          <li><a href="../../../guide/topics/ui/layout-objects.html">
+                <span class="en">Common Layout Objects</span> 
+              </a></li>
+          <li><a href="../../../guide/topics/ui/how-android-draws.html">
+                <span class="en">How Android Draws Views</span> 
+              </a></li>
+        </ul>
+      </li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/resources/index.html">
+               <span class="en">Resources and Assests</span> 
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/resources/resources-i18n.html">
+                <span class="en">Resources and I18n</span>
+              </a></li>
+          <li><a href="../../../guide/topics/resources/available-resources.html">
+                <span class="en">Available Resource Types</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/intents/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></li>
+      <li><a href="../../../guide/topics/data/data-storage.html">
+            <span class="en">Data Storage</span>
+          </a></li>
+      <li><a href="../../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></li>
+      <li><a href="../../../guide/topics/security/security.html">
+            <span class="en">Security and Permissions</span>
+          </a></li>
+  <!--  <li><a style="color:gray;">Processes and Threads</a></li> -->
+  <!--  <li><a style="color:gray;">Interprocess Communication</a></li> -->
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/manifest/manifest-intro.html">
+               <span class="en">The AndroidManifest.xml File</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li>  <!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+          <li><a href="../../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+          <li><a href="../../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/topics/graphics/index.html">
+               <span class="en">Graphics</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/graphics/2d-graphics.html">
+                <span class="en">2D Graphics</span>
+              </a></li>
+          <li><a href="../../../guide/topics/graphics/opengl.html">
+                <span class="en">3D with OpenGL</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/media/index.html">
+            <span class="en">Audio and Video</span>
+          </a></li>
+  <!--<li class="toggle-list">
+        <div><a style="color:gray;">Sensors</a></div>
+          <ul>
+            <li><a style="color:gray;">Camera</a></li>
+            <li><a style="color:gray;">Compass</a></li>
+            <li><a style="color:gray;">Accelerometer</a></li>
+          </ul>
+      </li> -->
+      <li><a href="../../../guide/topics/location/index.html">
+            <span class="en">Location and Maps</span>
+          </a></li>
+  <!--<li class="toggle-list">
+        <div><a style="color:gray;">Wireless Controls</a></div>
+          <ul>
+            <li><a style="color:gray;">Wi-Fi</a></li>
+            <li><a style="color:gray;">Bluetooth</a></li>
+          </ul>
+      </li> -->
+  <!--<li><a style="color:gray;">Localization</a></li>  -->
+      <li><a href="../../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span>
+          </a></li>
+    </ul>
+  </li>
+  
+  <li>
+    <h2><span class="en">Developing</span>
+               <span class="de">Entwicklung</span>
+               <span class="es">Desarrollo</span>
+               <span class="fr">Développement</span>
+               <span class="it">Sviluppo</span>
+               <span class="ja">開発</span>
+               <span class="zh-CN">开发</span>
+               <span class="zh-TW">開發</span>
+    </h2>
+    <ul>
+  <!--<li><a href="">Developing for Android</a></li>
+      signing, upgrading, selecting a package name, select device profile, touch, trackball, dpad available, etc. -->
+      <li><a href="../../../guide/developing/eclipse-adt.html">
+            <span class="en">In Eclipse, with ADT</span> 
+            <span class="de" style="display:none">In Eclipse, mit ADT</span>
+            <span class="es" style="display:none">En Eclipse, con ADT</span>
+            <span class="fr" style="display:none">Sous Eclipse, à l'aide du plugin ADT</span>
+            <span class="it" style="display:none">In Eclipse, con ADT</span>
+            <span class="ja" style="display:none">Eclipse 内で ADT を使用</span>
+            <span class="zh-CN" style="display:none">利用 ADT 在 Eclipse 中开发</span>
+            <span class="zh-TW" style="display:none">在加裝 ADT 工具的 Eclipse 環境中</span>
+          </a></li>
+      <li><a href="../../../guide/developing/other-ide.html">
+            <span class="en">In Other IDEs</span>
+            <span class="de" style="display:none">In anderen IDEs</span>
+            <span class="es" style="display:none">En otros entornos</span>
+            <span class="fr" style="display:none">Sous d'autres environnements</span>
+            <span class="it" style="display:none">In altri IDE</span>
+            <span class="ja" style="display:none">その他の統合開発環境</span>
+            <span class="zh-CN" style="display:none">在其他 IDE 中开发</span>
+            <span class="zh-TW" style="display:none">在其他開發環境中</span>
+          </a></li>
+      <li><a href="../../../guide/developing/device.html">
+            <span class="en">On a Device</span>
+          </a></li>
+      <li><a href="../../../guide/developing/debug-tasks.html">
+            <span class="en">Debugging Tasks</span>
+          </a></li>
+      <li class="toggle-list">
+        <div><a href="../../../guide/developing/tools/index.html">
+            <span class="en">Tools</span>
+          </a></div>
+        <ul>
+      		<li><a href="../../../guide/developing/tools/aapt.html">aapt</a></li>
+      		<li><a href="../../../guide/developing/tools/adb.html">adb</a></li>
+      		<li><a href="../../../guide/developing/tools/othertools.html#android">android</a></li>
+      <!--<li><a href="../../../guide/developing/tools/adt.html">ADT Plugin</a></li>-->
+      		<li><a href="../../../guide/developing/tools/aidl.html">aidl</a></li>
+      		<li><a href="../../../guide/developing/tools/avd.html">AVDs</a></li>
+      		<li><a href="../../../guide/developing/tools/ddms.html">ddms</a></li>
+      		<li><a href="../../../guide/developing/tools/othertools.html#dx">dx</a></li>
+      		<li><a href="../../../guide/developing/tools/draw9patch.html">Draw 9-Patch</a></li>
+      		<li><a href="../../../guide/developing/tools/emulator.html">Emulator</a></li>
+      		<li><a href="../../../guide/developing/tools/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+      		<li><a href="../../../guide/developing/tools/othertools.html#mksdcard">mksdcard</a></li>
+      		<li><a href="../../../guide/developing/tools/monkey.html">Monkey</a></li>
+      		<li><a href="../../../guide/developing/tools/adb.html#sqlite">sqlite3</a></li>
+      		<li><a href="../../../guide/developing/tools/traceview.html" >Traceview</a></li>
+      		<li><a href="../../../guide/developing/tools/zipalign.html" >zipalign</a></li>
+    	  </ul>
+  	  </li>
+  <!--<li><a href="../../../guide/developing/instrumentation/index.html">Instrumentation</a></li>
+      <li><a style="color:gray;">JUnit</a></li> -->
+    </ul>
+  </li>
+  
+  <li>
+    <h2><span class="en">Publishing</span>
+        <span class="de">Veröffentlichung</span>
+        <span class="es">Publicación</span>
+        <span class="fr">Publication</span>
+        <span class="it">Pubblicazione</span>
+        <span class="ja">公開</span>
+        <span class="zh-CN">发布</span>
+        <span class="zh-TW">發佈</span>
+    </h2>
+    <ul>
+      <li><a href="../../../guide/publishing/app-signing.html">
+            <span class="en">Signing Your Applications</span>
+            <span class="de" style="display:none">Signieren Ihrer Anwendungen</span>
+            <span class="es" style="display:none">Firma de aplicaciones</span>
+            <span class="fr" style="display:none">Attribution de votre signature <br />à vos applications</span>
+            <span class="it" style="display:none">Firma delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションへの署名</span>
+            <span class="zh-CN" style="display:none">应用程序签名</span>
+            <span class="zh-TW" style="display:none">簽署應用程式</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/versioning.html">
+            <span class="en">Versioning Your Applications</span>
+            <span class="de" style="display:none">Versionsverwaltung für Ihre <br />Anwendungen</span>
+            <span class="es" style="display:none">Versiones de las aplicaciones</span>
+            <span class="fr" style="display:none">Attribution d'une version à vos applications</span>
+            <span class="it" style="display:none">Controllo versioni delle applicazioni</span>
+            <span class="ja" style="display:none">アプリケーションのバージョニング</span>
+            <span class="zh-CN" style="display:none">应用程序版本控制</span>
+            <span class="zh-TW" style="display:none">應用程式版本設定</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/preparing.html">
+            <span class="en">Preparing to Publish</span>
+            <span class="de" style="display:none">Vorbereitung auf die Veröffentlichung</span>
+            <span class="es" style="display:none">Publicación de aplicaciones</span>
+            <span class="fr" style="display:none">Préparation à la publication</span>
+            <span class="it" style="display:none">Preparativi per la pubblicazione</span>
+            <span class="ja" style="display:none">公開の準備</span>
+            <span class="zh-CN" style="display:none">准备发布</span>
+            <span class="zh-TW" style="display:none">準備發佈</span>
+          </a></li>
+      <li><a href="../../../guide/publishing/publishing.html">
+            <span class="en">Publishing Your Applications</span>
+          </a></li>
+    </ul>
+  </li>
+  
+  <li>
+    <h2><span class="en">Best Practices</span>
+               <span class="de">Bewährte Verfahren</span>
+               <span class="es">Prácticas recomendadas</span>
+               <span class="fr">Meilleures pratiques</span>
+               <span class="it">Best practice</span>
+               <span class="ja">ベスト プラクティス</span>
+               <span class="zh-CN">最佳实践</span>
+               <span class="zh-TW">最佳實務</span>
+    </h2>
+    <ul>
+      <li class="toggle-list">
+        <div><a href="../../../guide/practices/ui_guidelines/index.html">
+               <span class="en">UI Guidelines</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/ui_guidelines/icon_design.html">
+                <span class="en">Icon Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/widget_design.html">
+                <span class="en">App Widget Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/activity_task_design.html">
+                <span class="en">Activity and Task Design</span>
+              </a></li>
+          <li><a href="../../../guide/practices/ui_guidelines/menu_design.html">
+                <span class="en">Menu Design</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/design/performance.html">
+            <span class="en">Designing for Performance</span>
+          </a></li>
+      <li><a href="../../../guide/practices/design/responsiveness.html">
+            <span class="en">Designing for Responsiveness</span>
+          </a></li>
+      <li><a href="../../../guide/practices/design/seamlessness.html">
+            <span class="en">Designing for Seamlessness</span>
+          </a></li>
+    </ul>
+  </li>
+  
+  <li>
+    <h2><span class="en">Tutorials and Sample Code</span>
+               <span class="de">Lernprogramme und Beispielcode</span>
+               <span class="es">Tutoriales y código de ejemplo</span>
+               <span class="fr">Didacticiels et exemple de code</span>
+               <span class="it">Esercitazioni e codice di esempio</span>
+               <span class="ja">チュートリアルとサンプル コード</span>
+               <span class="zh-CN">辅导手册和示例代码</span>
+               <span class="zh-TW">教學課程與程式碼範例</span>
+    </h2>
+    <ul>
+      <li><a href="../../../guide/tutorials/hello-world.html">
+            <span class="en">Hello World</span>
+          </a></li>
+      <li><a href="../../../guide/tutorials/views/index.html">
+            <span class="en">Hello Views</span>
+          </a></li>
+      <li><a href="../../../guide/tutorials/notepad/index.html">
+            <span class="en">Notepad Tutorial</span>
+          </a></li>
+    </ul>
+    <ul>
+    
+      <li><a href="../../../../platforms/android-1.6/samples">
+            <span class="en">Sample Code</span>
+          &raquo;</a></li>
+    
+    </ul>
+  </li>
+  
+
+  <li>
+    <h2><span class="en">Appendix</span>
+               <span class="de">Anhang</span>
+               <span class="es">Apéndice</span>
+               <span class="fr">Annexes</span>
+               <span class="it">Appendice</span>
+               <span class="ja">付録</span>
+               <span class="zh-CN">附录</span>
+               <span class="zh-TW">附錄</span>
+    </h2>
+    <ul>
+      <li><a href="../../../guide/appendix/api-levels.html">
+            <span class="en">Android API Levels</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/media-formats.html">
+            <span class="en">Supported Media Formats</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/g-app-intents.html">
+            <span class="en">Intents List: Google Apps</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/glossary.html">
+            <span class="en">Glossary</span>
+          </a></li>
+      <li><a href="../../../guide/appendix/faq/index.html">
+            <span class="en">FAQ</span>
+          </a></li>
+    </ul>
+  </li>
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      addLoadEvent(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb">
+    &nbsp;
+    
+  </span>
+<h1>Designing for Performance</h1>
+</div>
+
+  <div id="jd-content">
+
+
+    <div class="jd-descr">
+    <p>An Android application should be fast. Well, it's probably more accurate to
+say that it should be <em>efficient</em>. That is, it should execute as
+efficiently as possible in the mobile device environment, with its limited
+computing power and data storage, smaller screen, and constrained battery life. 
+
+<p>As you develop your application, keep in mind that, while the application may
+perform well enough in your emulator, running on your dual-core development
+computer, it will not perform that well when run a mobile device &mdash; even
+the most powerful mobile device can't match the capabilities of a typical
+desktop system. For that reason, you should strive to write efficient code, to
+ensure the best possible performance on a variety of mobile devices.</p>
+
+<p>Generally speaking, writing fast or efficient code means keeping memory
+allocations to a minimum, writing tight code, and avoiding certain language and
+programming idioms that can subtly cripple performance. In object-oriented
+terms, most of this work takes place at the <em>method</em> level, on the order of
+actual lines of code, loops, and so on.</p>
+
+<p>This document covers these topics: </p>
+<ul>
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#object_creation">Avoid Creating Objects</a></li>
+    <li><a href="#native_methods">Use Native Methods</a></li>
+    <li><a href="#prefer_virtual">Prefer Virtual Over Interface</a></li>
+    <li><a href="#prefer_static">Prefer Static Over Virtual</a></li>
+    <li><a href="#internal_get_set">Avoid Internal Getters/Setters</a></li>
+    <li><a href="#cache_fields">Cache Field Lookups</a></li>
+    <li><a href="#use_final">Declare Constants Final</a></li>
+    <li><a href="#foreach">Use Enhanced For Loop Syntax With Caution</a></li>
+    <li><a href="#avoid_enums">Avoid Enums</a></li>
+    <li><a href="#package_inner">Use Package Scope with Inner Classes</a></li>
+    <li><a href="#avoidfloat">Avoid Float</a> </li>
+    <li><a href="#samples">Some Sample Performance Numbers</a> </li>
+    <li><a href="#closing_notes">Closing Notes</a></li>
+</ul>
+
+<a name="intro" id="intro"></a>
+<h2>Introduction</h2>
+
+<p>There are two basic rules for resource-constrained systems:</p>
+
+<ul>
+    <li>Don't do work that you don't need to do.</li>
+    <li>Don't allocate memory if you can avoid it.</li>
+</ul>
+
+<p>All the tips below follow from these two basic tenets.</p>
+
+<p>Some would argue that much of the advice on this page amounts to "premature
+optimization." While it's true that micro-optimizations sometimes make it
+harder to develop efficient data structures and algorithms, on embedded
+devices like handsets you often simply have no choice.  For instance, if you
+bring your assumptions about VM performance on desktop machines to Android,
+you're quite likely to write code that exhausts system memory.  This will bring
+your application to a crawl &mdash; let alone what it will do to other programs
+running on the system!</p>
+
+<p>That's why these guidelines are important.  Android's success depends on
+the user experience that your applications provide, and that user experience
+depends in part on whether your code is responsive and snappy, or slow and
+aggravating.  Since all our applications will run on the same devices, we're
+all in this together, in a way.  Think of this document as like the rules of
+the road you had to learn when you got your driver's license:  things run
+smoothly when everybody follows them, but when you don't, you get your car
+smashed up.</p>
+
+<p>Before we get down to brass tacks, a brief observation: nearly all issues
+described below are valid whether or not the VM features a JIT compiler. If I
+have two methods that accomplish the same thing, and the interpreted execution
+of foo() is faster than bar(), then the compiled version of foo() will
+probably be as fast or faster than compiled bar(). It is unwise to rely on a
+compiler to "save" you and make your code fast enough.</p>
+
+<a name="object_creation"></a>
+<h2>Avoid Creating Objects</h2>
+
+<p>Object creation is never free. A generational GC with per-thread allocation
+pools for temporary objects can make allocation cheaper, but allocating memory
+is always more expensive than not allocating memory.</p>
+
+<p>If you allocate objects in a user interface loop, you will force a periodic
+garbage collection, creating little "hiccups" in the user experience.</p>
+
+<p>Thus, you should avoid creating object instances you don't need to.  Some
+examples of things that can help:</p>
+
+<ul>
+    <li>When extracting strings from a set of input data, try 
+    to return a substring of the original data, instead of creating a copy.
+    You will create a new String object, but it will share the char[]
+    with the data.</li>
+    <li>If you have a method returning a string, and you know that its result
+    will always be appended to a StringBuffer anyway, change your signature
+    and implementation so that the function does the append directly,
+    instead of creating a short-lived temporary object.</li>
+</ul>
+
+<p>A somewhat more radical idea is to slice up multidimensional arrays into parallel
+single one-dimension arrays:</p>
+
+<ul>
+    <li>An array of ints is a much better than an array of Integers,
+    but this also generalizes to the fact that two parallel arrays of ints
+    are also a <strong>lot</strong> more efficient than an array of (int,int)
+    objects.  The same goes for any combination of primitive types.</li>
+    <li>If you need to implement a container that stores tuples of (Foo,Bar)
+    objects, try to remember that two parallel Foo[] and Bar[] arrays are
+    generally much better than a single array of custom (Foo,Bar) objects.
+    (The exception to this, of course, is when you're designing an API for
+    other code to access;  in those cases, it's usually better to trade
+    correct API design for a small hit in speed. But in your own internal 
+    code, you should try and be as efficient as possible.)</li>
+</ul>
+
+<p>Generally speaking, avoid creating short-term temporary objects if you
+can.  Fewer objects created mean less-frequent garbage collection, which has
+a direct impact on user experience.</p>
+
+<a name="native_methods" id="native_methods"></a>
+<h2>Use Native Methods</h2>
+
+<p>When processing strings, don't hesitate to use specialty methods like
+String.indexOf(), String.lastIndexOf(), and their cousins. These are typically
+implemented in C/C++ code that easily runs 10-100x faster than doing the same
+thing in a Java loop.</p>
+
+<p>The flip side of that advice is that punching through to a native
+method is more expensive than calling an interpreted method. Don't use native
+methods for trivial computation, if you can avoid it.</p>
+
+<a name="prefer_virtual" id="prefer_virtual"></a>
+<h2>Prefer Virtual Over Interface</h2>
+
+<p>Suppose you have a HashMap object.  You can declare it as a HashMap or as
+a generic Map:</p>
+
+<pre>Map myMap1 = new HashMap();
+HashMap myMap2 = new HashMap();</pre>
+
+<p>Which is better?</p>
+
+<p>Conventional wisdom says that you should prefer Map, because it
+allows you to change the underlying implementation to anything that
+implements the Map interface.  Conventional wisdom is correct for
+conventional programming, but isn't so great for embedded systems.  Calling
+through an interface reference can take 2x longer than a virtual
+method call through a concrete reference.</p>
+
+<p>If you have chosen a HashMap because it fits what you're doing, there
+is little value in calling it a Map.  Given the availability of
+IDEs that refactor your code for you, there's not much value in calling
+it a Map even if you're not sure where the code is headed. (Again, though,
+public APIs are an exception:  a good API usually trumps small performance
+concerns.)</p>
+
+<a name="prefer_static" id="prefer_static"></a>
+<h2>Prefer Static Over Virtual</h2>
+
+<p>If you don't need to access an object's fields, make your method static.  It can
+be called faster, because it doesn't require a virtual method table
+indirection.  It's also good practice, because you can tell from the method
+signature that calling the method can't alter the object's state.</p>
+
+<a name="internal_get_set" id="internal_get_set"></a>
+<h2>Avoid Internal Getters/Setters</h2>
+
+<p>In native languages like C++ it's common practice to use getters (e.g.
+<code>i = getCount()</code>) instead of accessing the field directly (<code>i
+= mCount</code>). This is an excellent habit for C++, because the compiler can
+usually inline the access, and if you need to restrict or debug field access
+you can add the code at any time.</p>
+
+<p>On Android, this is a bad idea.  Virtual method calls are expensive,
+much more so than instance field lookups.  It's reasonable to follow
+common object-oriented programming practices and have getters and setters
+in the public interface, but within a class you should always access
+fields directly.</p>
+
+<a name="cache_fields" id="cache_fields"></a>
+<h2>Cache Field Lookups</h2>
+
+<p>Accessing object fields is much slower than accessing local variables.
+Instead of writing:</p>
+<pre>for (int i = 0; i &lt; this.mCount; i++)
+      dumpItem(this.mItems[i]);</pre>
+
+<p>You should write:</p>
+<pre>  int count = this.mCount;
+  Item[] items = this.mItems;
+ 
+  for (int i = 0; i &lt; count; i++)
+      dumpItems(items[i]);
+</pre>
+
+<p>(We're using an explicit "this" to make it clear that these are
+member variables.)</p>
+
+<p>A similar guideline is never call a method in the second clause of a "for"
+statement.  For example, the following code will execute the getCount() method
+once per iteration, which is a huge waste when you could have simply cached
+the value as an int:</p>
+
+<pre>for (int i = 0; i &lt; this.getCount(); i++)
+    dumpItems(this.getItem(i));
+</pre>
+
+<p>It's also usually a good idea to create a local variable if you're going to be
+accessing an instance field more than once.  For example:</p>
+
+<pre>
+    protected void drawHorizontalScrollBar(Canvas canvas, int width, int height) {
+        if (isHorizontalScrollBarEnabled()) {
+            int size = <strong>mScrollBar</strong>.getSize(<em>false</em>);
+            if (size &lt;= 0) {
+                size = mScrollBarSize;
+            }
+            <strong>mScrollBar</strong>.setBounds(0, <em>height</em> - size, width, height);
+            <strong>mScrollBar</strong>.setParams(
+                    computeHorizontalScrollRange(),
+                    computeHorizontalScrollOffset(),
+                    computeHorizontalScrollExtent(), <em>false</em>);
+            <strong>mScrollBar</strong>.draw(canvas);
+        }
+    }</pre>
+
+<p>That's four separate lookups of the member field <code>mScrollBar</code>.
+By caching mScrollBar in a local stack variable, the four member field lookups
+become four stack variable references, which are much more efficient.</p>
+
+<p>Incidentally, method arguments have the same performance characteristics
+as local variables.</p>
+
+<a name="use_final" id="use_final"></a>
+<h2>Declare Constants Final</h2>
+
+<p>Consider the following declaration at the top of a class:</p>
+
+<pre>static int intVal = 42;
+static String strVal = "Hello, world!";</pre>
+
+<p>The compiler generates a class initializer method, called
+<code>&lt;clinit&gt;</code>, that is executed when the class is first used.
+The method stores the value 42 into <code>intVal</code>, and extracts a
+reference from the classfile string constant table for <code>strVal</code>.
+When these values are referenced later on, they are accessed with field
+lookups.</p>
+
+<p>We can improve matters with the "final" keyword:</p>
+
+<pre>static final int intVal = 42;
+static final String strVal = "Hello, world!";</pre>
+
+<p>The class no longer requires a <code>&lt;clinit&gt;</code> method,
+because the constants go into classfile static field initializers, which are
+handled directly by the VM.  Code accessing <code>intVal</code> will use
+the integer value 42 directly, and accesses to <code>strVal</code> will
+use a relatively inexpensive "string constant" instruction instead of a
+field lookup.</p>
+
+<p>Declaring a method or class "final" does not confer any immediate
+performance benefits, but it does allow certain optimizations. For example, if
+the compiler knows that a "getter" method can't be overridden by a sub-class,
+it can inline the method call.</p>
+
+<p>You can also declare local variables final. However, this has no definitive
+performance benefits. For local variables, only use "final" if it makes the
+code clearer (or you have to, e.g. for use in an anonymous inner class).</p>
+
+<a name="foreach" id="foreach"></a>
+<h2>Use Enhanced For Loop Syntax With Caution</h2>
+
+<p>The enhanced for loop (also sometimes known as "for-each" loop) can be used for collections that implement the Iterable interface.
+With these objects, an iterator is allocated to make interface calls
+to hasNext() and next(). With an ArrayList, you're better off walking through
+it directly, but for other collections the enhanced for loop syntax will be equivalent
+to explicit iterator usage.</p>
+
+<p>Nevertheless, the following code shows an acceptable use of the enhanced for loop:</p>
+
+<pre>public class Foo {
+    int mSplat;
+    static Foo mArray[] = new Foo[27];
+
+    public static void zero() {
+        int sum = 0;
+        for (int i = 0; i &lt; mArray.length; i++) {
+            sum += mArray[i].mSplat;
+        }
+    }
+
+    public static void one() {
+        int sum = 0;
+        Foo[] localArray = mArray;
+        int len = localArray.length;
+
+        for (int i = 0; i &lt; len; i++) {
+            sum += localArray[i].mSplat;
+        }
+    }
+
+    public static void two() {
+        int sum = 0;
+        for (Foo a: mArray) {
+            sum += a.mSplat;
+        }
+    }
+}</pre>
+
+<p><strong>zero()</strong> retrieves the static field twice and gets the array
+length once for every iteration through the loop.</p>
+
+<p><strong>one()</strong> pulls everything out into local variables, avoiding
+the lookups.</p>
+
+<p><strong>two()</strong> uses the enhanced for loop syntax introduced in version 1.5 of
+the Java programming language. The code generated by the compiler takes care
+of copying the array reference and the array length to local variables, making
+it a good choice for walking through all elements of an array. It does
+generate an extra local load/store in the main loop (apparently preserving
+"a"), making it a teensy bit slower and 4 bytes longer than one().</p>
+
+<p>To summarize all that a bit more clearly: enhanced for loop syntax performs well
+with arrays, but be cautious when using it with Iterable objects since there is
+additional object creation.</p>
+
+<a name="avoid_enums" id="avoid_enums"></a>
+<h2>Avoid Enums</h2>
+
+<p>Enums are very convenient, but unfortunately can be painful when size
+and speed matter.  For example, this:</p>
+
+<pre>public class Foo {
+   public enum Shrubbery { GROUND, CRAWLING, HANGING }
+}</pre>
+
+<p>turns into a 900 byte .class file (Foo$Shrubbery.class). On first use, the
+class initializer invokes the &lt;init&gt; method on objects representing each
+of the enumerated values. Each object gets its own static field, and the full
+set is stored in an array (a static field called "$VALUES"). That's a lot of
+code and data, just for three integers.</p>
+
+<p>This:</p>
+
+<pre>Shrubbery shrub = Shrubbery.GROUND;</pre>
+
+<p>causes a static field lookup.  If "GROUND" were a static final int,
+the compiler would treat it as a known constant and inline it.</p>
+
+<p>The flip side, of course, is that with enums you get nicer APIs and
+some compile-time value checking.  So, the usual trade-off applies: you should
+by all means use enums for public APIs, but try to avoid them when performance
+matters.</p>
+
+<p>In some circumstances it can be helpful to get enum integer values
+through the <code>ordinal()</code> method.  For example, replace:</p>
+
+<pre>for (int n = 0; n &lt; list.size(); n++) {
+    if (list.items[n].e == MyEnum.VAL_X)
+       // do stuff 1
+    else if (list.items[n].e == MyEnum.VAL_Y)
+       // do stuff 2
+}</pre>
+
+<p>with:</p>
+
+<pre>   int valX = MyEnum.VAL_X.ordinal();
+   int valY = MyEnum.VAL_Y.ordinal();
+   int count = list.size();
+   MyItem items = list.items();
+
+   for (int  n = 0; n &lt; count; n++)
+   {
+        int  valItem = items[n].e.ordinal();
+
+        if (valItem == valX)
+          // do stuff 1
+        else if (valItem == valY)
+          // do stuff 2
+   }</pre>
+
+<p>In some cases, this will be faster, though this is not guaranteed.</p>
+
+<a name="package_inner" id="package_inner"></a>
+<h2>Use Package Scope with Inner Classes</h2>
+
+<p>Consider the following class definition:</p>
+
+<pre>public class Foo {
+    private int mValue;
+
+    public void run() {
+        Inner in = new Inner();
+        mValue = 27;
+        in.stuff();
+    }
+
+    private void doStuff(int value) {
+        System.out.println("Value is " + value);
+    }
+
+    private class Inner {
+        void stuff() {
+            Foo.this.doStuff(Foo.this.mValue);
+        }
+    }
+}</pre>
+
+<p>The key things to note here are that we define an inner class (Foo$Inner)
+that directly accesses a private method and a private instance field
+in the outer class.  This is legal, and the code prints "Value is 27" as
+expected.</p>
+
+<p>The problem is that Foo$Inner is technically (behind the scenes) a totally
+separate class, which makes direct access to Foo's private
+members illegal.  To bridge that gap, the compiler generates a
+couple of synthetic methods:</p>
+
+<pre>/*package*/ static int Foo.access$100(Foo foo) {
+    return foo.mValue;
+}
+/*package*/ static void Foo.access$200(Foo foo, int value) {
+    foo.doStuff(value);
+}</pre>
+
+<p>The inner-class code calls these static methods whenever it needs to
+access the "mValue" field or invoke the "doStuff" method in the outer
+class. What this means is that the code above really boils down to a case
+where you're accessing member fields through accessor methods instead of
+directly.  Earlier we talked about how accessors are slower than direct field
+accesses, so this is an example of a certain language idiom resulting in an
+"invisible" performance hit.</p>
+
+<p>We can avoid this problem by declaring fields and methods accessed
+by inner classes to have package scope, rather than private scope.
+This runs faster and removes the overhead of the generated methods.
+(Unfortunately it also means the fields could be accessed directly by other
+classes in the same package, which runs counter to the standard OO
+practice of making all fields private. Once again, if you're
+designing a public API you might want to carefully consider using this
+optimization.)</p>
+
+<a name="avoidfloat" id="avoidfloat"></a>
+<h2>Avoid Float</h2>
+
+<p>Before the release of the Pentium CPU, it was common for game authors to do
+as much as possible with integer math. With the Pentium, the floating point
+math co-processor became a built-in feature, and by interleaving integer and
+floating-point operations your game would actually go faster than it would
+with purely integer math. The common practice on desktop systems is to use
+floating point freely.</p>
+
+<p>Unfortunately, embedded processors frequently do not have hardware floating
+point support, so all operations on "float" and "double" are performed in
+software. Some basic floating point operations can take on the order of a
+millisecond to complete.</p>
+
+<p>Also, even for integers, some chips have hardware multiply but lack
+hardware divide. In such cases, integer division and modulus operations are
+performed in software &mdash; something to think about if you're designing a
+hash table or doing lots of math.</p>
+
+<a name="samples" id="samples"></a>
+<h2>Some Sample Performance Numbers</h2>
+
+<p>To illustrate some of our ideas, here is a table listing the approximate
+run times for a few basic actions. Note that these values should NOT be taken
+as absolute numbers: they are a combination of CPU and wall clock time, and
+will change as improvements are made to the system. However, it is worth
+noting how these values apply relative to each other &mdash; for example,
+adding a member variable currently takes about four times as long as adding a
+local variable.</p>
+
+<table>
+    <tr>
+        <th>Action</th>
+        <th>Time</th>
+    </tr>
+    <tr>
+        <td>Add a local variable </td>
+        <td>1</td>
+    </tr>
+    <tr class="alt">
+        <td>Add a member variable </td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>Call String.length()</td>
+        <td>5</td>
+    </tr>
+    <tr class="alt">
+        <td>Call empty static native method</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>Call empty static method </td>
+        <td>12</td>
+    </tr>
+    <tr class="alt">
+        <td>Call empty virtual method </td>
+        <td>12.5</td>
+    </tr>
+    <tr>
+        <td>Call empty interface method </td>
+        <td>15</td>
+    </tr>
+    <tr class="alt">
+        <td>Call Iterator:next() on a HashMap </td>
+        <td>165</td>
+    </tr>
+    <tr>
+        <td>Call put() on a HashMap</td>
+        <td>600</td>
+    </tr>
+    <tr class="alt">
+        <td>Inflate 1 View from XML </td>
+        <td>22,000</td>
+    </tr>
+    <tr>
+        <td>Inflate 1 LinearLayout containing 1 TextView </td>
+        <td>25,000</td>
+    </tr>
+    <tr class="alt">
+        <td>Inflate 1 LinearLayout containing 6 View objects </td>
+        <td>100,000</td>
+    </tr>
+    <tr>
+        <td>Inflate 1 LinearLayout containing 6 TextView objects </td>
+        <td>135,000</td>
+    </tr>
+    <tr class="alt">
+        <td>Launch an empty activity </td>
+        <td>3,000,000</td>
+    </tr>
+</table>
+
+<a name="closing_notes" id="closing_notes"></a>
+<h2>Closing Notes</h2>
+
+<p>The best way to write good, efficient code for embedded systems is to
+understand what the code you write really does. If you really want to allocate
+an iterator, by all means use enhanced for loop syntax on a List; just make it a
+deliberate choice, not an inadvertent side effect.</p>
+
+<p>Forewarned is forearmed!  Know what you're getting into!  Insert your
+favorite maxim here, but always think carefully about what your code is doing,
+and be on the lookout for ways to speed it up.</p>
+
+    </div>
+
+  <a href="#top" style="float:right">&uarr; Go to top</a>
+  
+  </div>
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 1.6&nbsp;r1 - 03 Sep 2009 10:53
+
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.android.com/terms.html">Site Terms of Service</a> -
+    <a href="http://www.android.com/privacy.html">Privacy Policy</a> -
+    <a href="http://www.android.com/branding.html">Brand Guidelines</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

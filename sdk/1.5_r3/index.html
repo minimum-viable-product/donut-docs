@@ -1,0 +1,396 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Android 1.5 SDK, Release 3 | Android Developers</title>
+<link href="../../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+
+<body class="gc-documentation">
+<a name="top"></a>
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../../index.html" tabindex="-1"><img
+              src="../../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="sdk">
+         
+	<li id="home-link"><a href="../../offline.html">
+	
+		<span class="en">Home</span>
+		<span class="de">Startseite</span>
+		<span class="es"></span>
+		<span class="fr"></span>
+		<span class="it"></span>
+                <span class="ja">ホーム</span>
+		<span class="zh-CN">主页</span>
+		<span class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../../sdk/1.6_r1/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span class="de">Handbuch</span>
+		<span class="es">Guía</span>
+		<span class="fr">Guide</span>
+		<span class="it">Guida</span>
+                <span class="ja">開発ガイド</span>
+		<span class="zh-CN">开发人员指南</span>
+		<span class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span class="de">Referenz</span>
+		<span class="es">Referencia</span>
+		<span class="fr">Référence</span>
+		<span class="it">Riferimento</span>
+                <span class="ja">リファレンス</span>
+		<span class="zh-CN">参考</span>
+		<span class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span class="de"></span>
+		<span class="es"></span>
+		<span class="fr"></span>
+		<span class="it"></span>
+                <span class="ja">ブログ</span>
+		<span class="zh-CN">博客</span>
+		<span class="zh-TW">網誌</span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span class="de"></span>
+		<span class="es"></span>
+		<span class="fr"></span>
+		<span class="it"></span>
+                <span class="ja">ビデオ</span>
+		<span class="zh-CN"></span>
+		<span class="zh-TW"></span>
+	
+	</a></li>
+	<li id="community-link"><a href="../../community/index.html">
+	
+		<span class="en">Community</span>
+		<span class="de"></span>
+		<span class="es">Comunidad</span>
+		<span class="fr">Communauté</span>
+		<span class="it"></span>
+                <span class="ja">コミュニティ</span>
+		<span class="zh-CN">社区</span>
+		<span class="zh-TW">社群</span>
+	
+	</a></li>
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../')"
+                      onkeyup="return search_changed(event, false, '../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first not-resizable" id="side-nav">
+      <div id="devdoc-nav">
+<ul>
+  <li>
+    <h2>Android 1.5 SDK, r3</h2>
+    <ul>
+      <li><a href="../../sdk/1.6_r1/installing.html">
+          <span class="en">Installing</span>
+          <span class="de">Installieren</span>
+          <span class="es">Instalación</span>
+          <span class="fr">Installation</span>
+          <span class="it">Installazione</span>
+          <span class="ja">インストール</span>
+          <span class="zh-CN">安装</span>
+          <span class="zh-TW">安裝</span>
+      </a></li>
+      <li><a href="../../sdk/1.6_r1/upgrading.html">Upgrading</a></li>
+      <li><a href="../../sdk/1.6_r1/requirements.html">System Requirements</a></li>
+    </ul>
+    <ul>
+      <li><a href="../../sdk/terms.html">SDK Terms and Conditions</a></li>
+      <li><a href="../../sdk/RELEASENOTES.html">SDK Release Notes</a></li>
+    </ul>
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+
+
+
+<div class="g-unit" id="doc-content" >
+  <div id="jd-header" class="guide-header" >
+    <span class="crumb">&nbsp;</span>
+    <h1>Android 1.5 SDK, Release 3</h1>
+  </div>
+
+  <div id="jd-content">
+    <p><em>July 2009</em>
+    </p>
+
+
+
+
+
+<p>The sections below provide an overview of the SDK package. </p>
+
+ 
+
+
+
+      <p>For more information on this SDK release, read the
+<a href="../../sdk/RELEASENOTES.html#1.5_r3">Release Notes</a>.</p>
+
+<h2>SDK Contents</h2>
+
+<h4>Development tools</h4>
+
+<p>The SDK includes a full set of tools for developing and debugging application code and designing an application UI. You can read about the tools in the  
+<a href="../../guide/developing/tools/index.html">Dev Guide</a> and access them in the <code>&lt;sdk&gt;/tools/</code> directory. 
+
+<p>The tools package in this SDK includes updates from those provided in the previous SDK. The tools also require a different project structure. To use the new tools, you need to migrate your applications to the new development environment. For more information about how to migrate, see <a href="upgrading.html">Upgrading the SDK</a>.
+
+<p>For more information about the new tools features, see the <a href="../../sdk/RELEASENOTES.html">SDK Release Notes</a>. 
+
+<h4 id="system_images">Android Platforms</h4>
+
+<p>This SDK includes multiple Android platform versions that you use to develop applications. For each version, both a fully compliant Android library and system image are provided. The table below lists the platform versions included in this SDK. For more information about a platform version &mdash; features, applications included, localizations, API changes, and so on &mdash; see its Version Notes. </p>
+
+<table style="margin-right:1em;" width="80%">
+<tr>
+<th><nobr>Platform</nobr></th><th><nobr>API Level</nobr></th><th>Notes</th><th>Description</th>
+</tr>
+
+<tr>
+<td width="5%"><nobr>Android 1.5</nobr></td>
+<td  width="5%">3</td>
+<td  width="5%"><nobr><a href="../../sdk/android-1.5.html">Version Notes</a></nobr></td>
+<td>Includes a standard Android 1.5 library and system image with a set of development applications. Does not include any external libraries (such as the Maps external library).</td>
+</tr>
+<tr>
+<td width="5%"><nobr>Android 1.1</nobr></td>
+<td  width="5%">2</td>
+<td  width="5%"><nobr><a href="../../sdk/android-1.1.html">Version Notes</a></nobr></td>
+<td>Includes a compliant Android 1.1 library and system image with a set of development applications. Also includes the Maps external library (due to legacy build system issues).</td>
+</tr>
+</table>
+
+<h4 id="system_images">SDK Add-Ons</h4>
+
+<p>An SDK add-on provides a development environment for an Android external library or a customized (but fully compliant) Android system image. This SDK includes the SDK add-on listed below. The Android system API Level required by the add-on is noted.</p>
+
+<table style="margin-right:1em;" width="80%">
+<tr>
+<th><nobr>Add-On</nobr></th><th><nobr>API Level</nobr></th><th>Notes</th><th>Description</th>
+</tr>
+<tr>
+<td width="5%"><nobr>Google APIs</nobr></td>
+<td  width="5%">3</td>
+<td  width="5%">&nbsp;</td>
+<td>Includes the com.google.android.maps external library, a compliant 
+system image, a <a href="../../reference/android/location/Geocoder.html">Geocoder</a>
+backend service implementation, documentation, and sample code. </td>
+</tr>
+</table>
+
+<h4>Sample Code and Applications</h4>
+
+<p>You can look at a variety of tutorials and samples in the <a href="../../guide/samples/index.html">Dev Guide</a> and access the sample code itself
+in the <code>&lt;sdk&gt;/platforms/android-1.5/samples/</code> directory of the SDK package. Note the new location &mdash; the SDK now includes multiple platform versions that you can develop against and each has its own sample code directory. </p>
+
+<h4>Documentation</h4>
+
+<p>The SDK package includes a full set of local documentation. To view it, open the <code>&lt;sdk&gt;/documentation.html</code> file in a web browser. If you are developing in an IDE such as Eclipse, you can also view the reference documentation directly in the IDE. </p>
+
+<p>The most current documentation is always available on the Android Developers site:</p>
+
+<p style="margin-left:2em;"><a href="http://developer.android.com/index.html">http://developer.android.com/</a></p>
+
+
+
+
+</div><!-- end jd-content -->
+
+
+     <div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.android.com/terms.html">Site Terms of Service</a> -
+    <a href="http://www.android.com/privacy.html">Privacy Policy</a> -
+    <a href="http://www.android.com/branding.html">Brand Guidelines</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+

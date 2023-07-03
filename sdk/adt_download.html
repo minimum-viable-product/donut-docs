@@ -1,0 +1,396 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+<title>Download the ADT Plugin Zip File | Android Developers</title>
+<link href="../assets/android-developer-docs-devguide.css" rel="stylesheet" type="text/css" />
+<script src="../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../assets/android-developer-docs.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../");
+</script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="gc-documentation">
+
+  <div id="header">
+      <div id="headerLeft">
+          <a href="../index.html" tabindex="-1"><img
+              src="../assets/images/bg_logo.png" alt="Android Developers" /></a>
+          <ul id="header-tabs" class="sdk">
+         
+	<li id="home-link"><a href="../offline.html">
+	
+		<span class="en">Home</span>
+		<span class="de">Startseite</span>
+		<span class="es"></span>
+		<span class="fr"></span>
+		<span class="it"></span>
+                <span class="ja">ホーム</span>
+		<span class="zh-CN">主页</span>
+		<span class="zh-TW">首頁</span>
+	
+	</a></li>
+	<li id="sdk-link"><a href="../sdk/1.6_r1/index.html">
+		<span class="en">SDK</span>
+	</a></li>
+	<li id="guide-link"><a href="../guide/index.html" onClick="return loadLast('guide')">
+	
+		<span class="en">Dev Guide</span>
+		<span class="de">Handbuch</span>
+		<span class="es">Guía</span>
+		<span class="fr">Guide</span>
+		<span class="it">Guida</span>
+                <span class="ja">開発ガイド</span>
+		<span class="zh-CN">开发人员指南</span>
+		<span class="zh-TW">開發指南</span>
+	
+	</a></li>
+	<li id="reference-link"><a href="../reference/packages.html" onClick="return loadLast('reference')">
+	
+		<span class="en">Reference</span>
+		<span class="de">Referenz</span>
+		<span class="es">Referencia</span>
+		<span class="fr">Référence</span>
+		<span class="it">Riferimento</span>
+                <span class="ja">リファレンス</span>
+		<span class="zh-CN">参考</span>
+		<span class="zh-TW">參考資料</span>
+	
+	</a></li>
+	<li><a href="http://android-developers.blogspot.com" onClick="return requestAppendHL(this.href)">
+	
+		<span class="en">Blog</span>
+		<span class="de"></span>
+		<span class="es"></span>
+		<span class="fr"></span>
+		<span class="it"></span>
+                <span class="ja">ブログ</span>
+		<span class="zh-CN">博客</span>
+		<span class="zh-TW">網誌</span>
+	
+	</a></li>
+	<li id="videos-link"><a href="../videos/index.html" onClick="return loadLast('videos')">
+	
+		<span class="en">Videos</span>
+		<span class="de"></span>
+		<span class="es"></span>
+		<span class="fr"></span>
+		<span class="it"></span>
+                <span class="ja">ビデオ</span>
+		<span class="zh-CN"></span>
+		<span class="zh-TW"></span>
+	
+	</a></li>
+	<li id="community-link"><a href="../community/index.html">
+	
+		<span class="en">Community</span>
+		<span class="de"></span>
+		<span class="es">Comunidad</span>
+		<span class="fr">Communauté</span>
+		<span class="it"></span>
+                <span class="ja">コミュニティ</span>
+		<span class="zh-CN">社区</span>
+		<span class="zh-TW">社群</span>
+	
+	</a></li>
+     
+</ul>
+     
+      </div>
+      <div id="headerRight">
+          <div id="headerLinks">
+          
+          <a href="http://www.android.com">Android.com</a>
+          </div>
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../')"
+                      onkeyup="return search_changed(event, false, '../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      </div><!-- headerRight -->
+      <script type="text/javascript">
+        <!--  
+        changeTabLang(getLangPref());
+        //-->
+      </script>
+  </div><!-- header -->
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first not-resizable" id="side-nav">
+      <div id="devdoc-nav">
+<ul>
+  <li>
+    <h2>Android 1.6 SDK, r1</h2>
+    <ul>
+      <li><a href="../sdk/1.6_r1/installing.html">
+          <span class="en">Installing</span>
+          <span class="de">Installieren</span>
+          <span class="es">Instalación</span>
+          <span class="fr">Installation</span>
+          <span class="it">Installazione</span>
+          <span class="ja">インストール</span>
+          <span class="zh-CN">安装</span>
+          <span class="zh-TW">安裝</span>
+      </a></li>
+      <li><a href="../sdk/1.6_r1/upgrading.html">Upgrading</a></li>
+      <li><a href="../sdk/1.6_r1/requirements.html">System Requirements</a></li>
+    </ul>
+    <ul>
+      <li><a href="../sdk/terms.html">SDK Terms and Conditions</a></li>
+      <li><a href="../sdk/RELEASENOTES.html">SDK Release Notes</a></li>
+    </ul>
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+      </div>
+    </div> <!-- end side-nav -->
+
+
+
+
+<div class="g-unit" id="doc-content"><a name="top"></a>
+
+<div id="jd-header" class="guide-header">
+  <span class="crumb">
+    &nbsp;
+    
+  </span>
+<h1>Download the ADT Plugin Zip File</h1>
+</div>
+
+  <div id="jd-content">
+
+
+    <div class="jd-descr">
+    <p>
+If you are unable to download the ADT plugin through <a
+href="../guide/developing/tools/adt.html#installingplugin">setting up a remote
+update site</a> in Eclipse, you can download the ADT zip file and install it 
+from your computer (archived site) instead. 
+</p>
+<p>
+If you use this approach, in order to update the plugin, you will need to 
+download the latest version from this page, uninstall the old version from 
+Eclipse, then install the new version. For more details on the procedure, 
+see Troubleshooting ADT Installation in the 
+<a href="../guide/developing/tools/adt.html#troubleshooting"> installation 
+page</a>.
+</p>
+<p>
+<table class="download">
+  <tr>
+    <th><nobr>ADT Version</nobr></th>
+    <th>Package</th>
+    <th>Size</th>
+    <th>Md5 Checksum</th>
+    <th>Notes</th>
+  </tr>
+
+  <tr>
+     <td>0.9.3</td>
+     <td><a href="http://dl-ssl.google.com/android/ADT-0.9.3.zip">ADT-0.9.3.zip</a></td>
+     <td><nobr>bytes</nobr></td>
+     <td><nobr></nobr></td>
+     <td><nobr>Required for users of Android 1.6 SDK (and later releases). Updated from 0.9.1. <em><nobr>September 2009</nobr></em></td>
+  </tr>
+  <tr class="alt-color">
+     <td>0.9.1</td>
+     <td><a href="http://dl-ssl.google.com/android/ADT-0.9.1.zip">ADT-0.9.1.zip</a></td>
+     <td><nobr>2916093 bytes</nobr></td>
+     <td><nobr>e7b2ab40414ac98</nobr></td>
+     <td><nobr>Required for users of Android 1.5 SDK. Updated from 0.9.0. <em><nobr>6 May 2009</nobr></em></td>
+  </tr>
+  <tr>
+     <td>0.8.0</td>
+     <td><a href="http://dl-ssl.google.com/android/ADT-0.8.0.zip">ADT-0.8.0.zip</a></td>
+     <td colspan="2"><nobr>&nbsp;</nobr></td>
+     <td><nobr>Required for users of Android 1.0/1.1 SDKs. <em><nobr>23 Sep 2008</nobr></em></td>
+  </tr>
+</table>
+
+
+<h4>Obsolete Versions of ADT</h4>
+
+<p>The table below lists older versions of the ADT Plugin that are no longer supported. If you are developing applications that are intended to be deployable to Android-powered devices, make sure that you upgrade to the most current SDK release available and use the most current version of the ADT Plugin, as listed in the section above.</p>
+
+<p>If you are not sure what version of ADT is installed in your Eclipse environment, open Eclipse and from the main menu select <strong>Help</strong> &gt; <strong>About Eclipse</strong> &gt; <strong>Features Details</strong>. Locate "com.android.ide.eclipse.adt" in the
+Feature ID column and look at its version number.</p>
+
+<table>
+  <tr>
+    <th><nobr>ADT Version</nobr></th>
+    <th>Notes</th>
+  </tr>
+
+  <tr>
+     <td>0.7.1</td>
+     <td>Required for users of the Android 0.9 SDK beta. <em><nobr>18 Aug 2008</nobr></em></td>
+  </tr>
+  <tr>
+     <td>0.4.0</td>
+     <td>Required for users of the Android M5 Early Look SDK. <em><nobr>12 Feb 2008</nobr></em></td>
+  </tr>
+  <tr>
+     <td>0.3.3</td>
+     <td>Required for users of the Android M3-RC37 Early Look SDK. <em><nobr>14 Dec 2007</nobr></em></td>
+  </tr>
+  <tr>
+     <td>0.3.1</td>
+     <td>Initial Release. Required for users of the Android M3-RC20/22 SDKs.<em><nobr>21 Nov 2007</nobr></em></td>
+  </tr>
+</table>
+</p>
+
+    </div>
+
+  <a href="#top" style="float:right">&uarr; Go to top</a>
+  
+  </div>
+
+<div id="footer">
+
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../license.html">Content 
+  License</a>.
+  </div>
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="http://www.android.com/terms.html">Site Terms of Service</a> -
+    <a href="http://www.android.com/privacy.html">Privacy Policy</a> -
+    <a href="http://www.android.com/branding.html">Brand Guidelines</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5831155-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+
+
+
